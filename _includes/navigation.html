@@ -1,0 +1,11 @@
+<label class="menu" for="menuToggle">Menu</label>
+<input class="menuToggle" type="checkbox" id="menuToggle" />
+<div class="navigation">
+  <ul>
+  {% for link in site.data.navigation %}
+    <li>
+      <a href="{{ link.url }}" {% if link.url contains 'http' %}target="_blank"{% endif %} title="{{ link.title }}">{{ link.title }}</a>
+    </li>
+  {% endfor %}
+  </ul>
+</div>

@@ -1,0 +1,15 @@
+# Look here for how to: https://evansosenko.com/posts/automatic-publishing-github-pages-travis-ci/
+# rename
+language: ruby
+before_install:
+  - travis_retry gem install jekyll
+script: jekyll build
+branches:
+  only:
+    - dev
+    - master
+rvm:
+  - 2.1.2
+env:
+  global:
+    secure: X2U3DUyb80mz2YegNRg8/a9xLQJJSv6mH+5oCownPLuPbnK/P2Meltwc96z5agR/5+qq1FwQ4l5yFZE32uDeK1HXayphXLUOM9bC6/7WqtnBHozscgQkwn+Fdo2jlZeJ59/ik+sn//a+V/0pB3zCwS2EXYJhOhMjx3DVpYG/Eu0=

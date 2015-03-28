@@ -4,9 +4,29 @@
   "settings"
 ;
 
+html,
+body {
+	height: 100%;
+}
+
+.page {
+	min-height: 100%;
+	position: relative;
+}
+
 .logo {
 	text-decoration: none;
 	color: $dark-grey;
+	display: inline-block;
 }
 
-@include button(button-black, #FFF, #333, #333, #333, transparent, #333);
+.menuToggle{
+	position:absolute;
+	width:1px;
+	height:1px;
+	padding:0;
+	margin:-1px;
+	border:0;
+	clip:rect(0 0 0 0);
+	overflow:hidden
+}

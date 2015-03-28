@@ -1,0 +1,102 @@
+// Variables
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+
+// Breakpoints
+$bp-larger-than-mobile    : 400px !default;
+$bp-larger-than-phablet   : 550px !default;
+$bp-larger-than-tablet    : 750px !default;
+$bp-larger-than-desktop   : 1000px !default;
+$bp-larger-than-desktophd : 1200px !default;
+
+// Colors
+$light-grey: #e1e1e1 !default;
+$dark-grey: #333 !default;
+$primary-color: #33c3f0 !default;
+$secondary-color: lighten($dark-grey, 13.5%) !default;
+$border-color: #bbb !default;
+$link-color: #1eaedb !default;
+$font-color: #222 !default;
+
+// Typography
+$font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$title-font-family: "Raleway", $font-family;
+
+// Grid Variables
+$container-full-height: true;
+$container-min-width: 320px !default;
+$container-max-width: 960px !default;
+$container-width-larger-than-mobile: 85% !default;
+$container-width-larger-than-phablet: 80% !default;
+$total-columns: 12 !default;
+$column-width: 100 / $total-columns !default; // calculates individual column width based off of # of columns
+$column-margin: 4% !default; // space between columns
+
+// Functions
+@function grid-column-width($n) {
+  @return $column-width * $n - ($column-margin*($total-columns - $n)/$total-columns);
+}
+
+@function grid-offset-length($n) {
+  @return grid-column-width($n) + $column-margin;
+}
+
+$vendors-border-radius: "-webkit-", "-moz-", "";
+@mixin border-radius($radius: 4px) {
+  @each $vendor in $vendors-border-radius {
+    #{$vendor}border-radius: $radius;
+  }
+}
+
+@mixin mq($width: 320px) {
+  @media (min-width: $width) {
+    @content;
+  }
+}
+
+$vendors-transition: "-webkit-", "-moz-", "-ms-", "-o-", "";
+@mixin transition($args...) {
+  @each $vendor in $vendors-transition {
+    #{$vendor}transition: $args;
+  }
+}
+
+
+@mixin _buttonBase($color, $background, $border) {
+  color: $color;
+  background-color: $background;
+  border-color: $border;
+  @include transition(all 500ms);
+}
+
+@mixin button($className, $color, $background, $border, $h-color, $h-background, $h-border) {
+  .button.#{$className},
+  button.#{$className} {
+    @include _buttonBase($color, $background, $border);
+  }
+
+  input {
+    &[type="submit"].#{$className},
+    &[type="reset"].#{$className},
+    &[type="button"].#{$className} {
+      @include _buttonBase($color, $background, $border);
+    }
+  }
+
+  .button.#{$className}:hover,
+  button.#{$className}:hover,
+  .button.#{$className}:focus,
+  button.#{$className}:focus {
+    @include _buttonBase($h-color, $h-background, $h-border);
+  }
+
+  input {
+    &[type="submit"].#{$className}:hover,
+    &[type="reset"].#{$className}:hover,
+    &[type="button"].#{$className}:hover,
+    &[type="submit"].#{$className}:focus,
+    &[type="reset"].#{$className}:focus,
+    &[type="button"].#{$className}:focus {
+      @include _buttonBase($h-color, $h-background, $h-border);
+    }
+  }
+}

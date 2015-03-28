@@ -3,3 +3,10 @@
 @import
   "settings"
 ;
+
+.logo {
+	text-decoration: none;
+	color: $dark-grey;
+}
+
+@include button(button-black, #FFF, #333, #333, #333, transparent, #333);

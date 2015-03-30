@@ -74,7 +74,7 @@ body {
 	}
 }
 
-@include button(button-menu, $dark-grey, transparent, $dark-grey, $light-grey, $dark-grey, $dark-grey)
+@include button(button-menu, $dark-grey, transparent, $dark-grey, $light-grey, $dark-grey, $dark-grey);
 .button-menu {
 	margin: 1rem 0;
 	padding: 0 15px !important;

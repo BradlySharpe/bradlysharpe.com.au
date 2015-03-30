@@ -102,9 +102,9 @@ $menu-width: 32rem;
   			text-decoration: none;
   			text-align: center;
   			color: $dark-grey;
-  			font-size: 1.8rem;
-  			padding: 5px 0;
-
+  			font-size: 2rem;
+  			padding: 8px 0;
+  			border-bottom: 1px solid $border-color;
   			@include transition(background-color 500ms, color 500ms);
 
   			&:hover {

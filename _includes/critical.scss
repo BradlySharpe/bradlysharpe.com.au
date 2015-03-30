@@ -29,4 +29,21 @@ body {
 	border:0;
 	clip:rect(0 0 0 0);
 	overflow:hidden
+	
+	+ .navigationList {
+	  position: fixed;
+	  top: 0;
+	  height: 100%;
+	  width: 18rem;
+	  right: -18rem;
+	  background: #FFF;
+	  opacity: 0;
+	  border-left: 1px solid $dark-grey;
+	  @include transition(right 500ms, opacity 500ms);
+	}
+
+	&:checked + .navigationList {
+  	right: 0;
+  	opacity: 1; 
+  }
 }

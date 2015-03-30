@@ -3,8 +3,9 @@
 		<h2 class="logo">Bradly Sharpe IT</h2>
 		<label class="button menu u-pull-right" for="menuToggle">Menu</label>
 		<input type="checkbox" class="menuToggle" name="menuToggle" id="menuToggle">
-		<div class="navigation-list">
-		  <ul>
+		<div class="navigationList">
+			<label class="closeMenu" for="menuToggle">Close Menu</label>
+		  <ul class="u-pull-right">
 		  {% for link in site.data.navigation %}
 		    <li>
 		      <a href="{{ link.url }}" {% if link.url contains 'http' %}target="_blank"{% endif %} title="{{ link.title }}">{{ link.title }}</a>

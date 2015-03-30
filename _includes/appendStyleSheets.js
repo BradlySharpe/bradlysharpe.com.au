@@ -20,7 +20,7 @@
 		var l = document.createElement('link'); 
 		l.rel = 'stylesheet';
 		l.media = "only x";
-		l.href = "{{ "/css/style2.css" | prepend: site.assets_url }}";
+		l.href = "{{ "/css/style.css" | prepend: site.assets_url }}";
 		var h = document.getElementsByTagName('head')[0]; 
 		h.appendChild(l);
 

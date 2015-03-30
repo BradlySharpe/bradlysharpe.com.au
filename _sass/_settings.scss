@@ -65,7 +65,7 @@ $vendors-transition: "-webkit-", "-moz-", "-ms-", "-o-", "";
   color: $color;
   background-color: $background;
   border-color: $border;
-  @include transition(all 500ms);
+  @include transition(color 500ms, background-color 500ms, border-color 500ms);
 }
 
 @mixin button($className, $color, $background, $border, $h-color, $h-background, $h-border) {

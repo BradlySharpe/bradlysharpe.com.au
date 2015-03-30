@@ -204,7 +204,7 @@ button {
   border: 1px solid $border-color;
   cursor: pointer;
   box-sizing: border-box;
-  @include transition(all 500ms);
+  @include transition(color 500ms, background-color 500ms, border-color 500ms);
 }
 
 input {
@@ -228,7 +228,7 @@ input {
     border: 1px solid $border-color;
     cursor: pointer;
     box-sizing: border-box;
-    @include transition(all 500ms);
+    @include transition(color 500ms, background-color 500ms, border-color 500ms);
   }
 }
 

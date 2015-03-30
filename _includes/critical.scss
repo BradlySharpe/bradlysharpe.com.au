@@ -148,6 +148,7 @@ $menu-width: 32rem;
 .closeMenu {
 	margin-bottom: 0;
 	padding: 5px 0;
+	display: block;
 	text-align: center;
 	background-color: $dark-grey;
   color: $light-grey;
@@ -168,7 +169,7 @@ $menu-width: 32rem;
 
   ul {
   	list-style: none;
-  	margin-bottom: 0;
+  	margin: 0;
   	width: 100%;
 
   	li {

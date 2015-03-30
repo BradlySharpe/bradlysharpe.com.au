@@ -22,12 +22,45 @@ body {
 	border-bottom: 1px solid $border-color;
 }
 
+.container {
+  position: relative;
+  width: 100%;
+  min-width: $container-min-width;
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.column,
+.columns {
+  width: 100%;
+  float: left;
+  box-sizing: border-box;
+}
+
+// For devices larger than 400px
+@include mq($bp-larger-than-mobile) {
+  .container {
+    width: $container-width-larger-than-mobile;
+    padding: 0;
+  }
+}
+
+// For devices larger than 550px
+@include mq($bp-larger-than-phablet) {
+  .container {
+    width: $container-width-larger-than-phablet;
+  }
+ }
+
 .logo {
 	text-decoration: none;
 	color: $dark-grey;
 	display: inline-block;
 	margin-bottom: 0;
 	font-size: 2.4rem;
+	font-family: $title-font-family;
 	line-height: 2.5;
 
 	@include mq($bp-larger-than-phablet) {
@@ -41,7 +74,8 @@ body {
 	}
 }
 
-.menu {
+@include button(button-menu, $dark-grey, transparent, $dark-grey, $light-grey, $dark-grey, $dark-grey)
+.button-menu {
 	margin: 1rem 0;
 	padding: 0 15px !important;
 }

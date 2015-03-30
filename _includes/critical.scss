@@ -20,6 +20,7 @@ body {
 	display: inline-block;
 }
 
+$menu-width: 32rem;
 .menuToggle{
 	position:absolute;
 	width:1px;
@@ -31,19 +32,23 @@ body {
 	overflow:hidden;
 	
 	+ .navigationList {
-	  position: fixed;
-	  top: 0;
-	  height: 100%;
-	  width: 18rem;
-	  right: -18rem;
-	  background: #FFF;
+	  right: -$menu-width;
 	  opacity: 0;
-	  border-left: 1px solid $dark-grey;
-	  @include transition(right 500ms, opacity 500ms);
 	}
 
 	&:checked + .navigationList {
   	right: 0;
   	opacity: 1; 
   }
+}
+
+.navigationList {
+	position: fixed;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  max-width: $menu-width;
+  background: #FFF;
+  border-left: 1px solid $dark-grey;
+  @include transition(right 500ms, opacity 500ms);
 }

@@ -51,4 +51,23 @@ $menu-width: 32rem;
   background: #FFF;
   border-left: 1px solid $dark-grey;
   @include transition(right 500ms, opacity 500ms);
+
+  ul {
+  	list-style: none;
+
+  	li {
+
+  		a {
+  			display: block;
+  			text-decoration: none;
+  			text-align: center;
+  			@include transition(background-color 500ms, color 500ms);
+
+  			&:hover {
+  				background-color: $dark-grey;
+  				color: $light-grey;
+  			}
+  		}
+  	}
+  }
 }

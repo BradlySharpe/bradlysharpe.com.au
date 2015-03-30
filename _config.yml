@@ -11,7 +11,8 @@ assets_url: ""
 
 # Build settings
 markdown: kramdown
-style: compressed
+sass:
+  style: compressed
 permalink: none
 timezone: "Australia/Melbourne"
 sitemap:

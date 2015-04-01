@@ -35,6 +35,7 @@ body {
 	left: 0;
 	right: 0;
 	border-bottom: 1px solid $border-color;
+  height: $header-height;
 }
 
 .container {
@@ -45,6 +46,11 @@ body {
   margin: 0 auto;
   padding: 0 20px;
   box-sizing: border-box;
+}
+
+.content {
+  padding-top: $header-height;
+  padding-bottom: $footer-height;
 }
 
 .column,

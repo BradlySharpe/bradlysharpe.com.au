@@ -31,6 +31,10 @@ $total-columns: 12 !default;
 $column-width: 100 / $total-columns !default; // calculates individual column width based off of # of columns
 $column-margin: 4% !default; // space between columns
 
+// Layout Variables
+$header-height: 6rem;
+$footer-height: 4rem;
+
 // Functions
 @function grid-column-width($n) {
   @return $column-width * $n - ($column-margin*($total-columns - $n)/$total-columns);

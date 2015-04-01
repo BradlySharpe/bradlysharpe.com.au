@@ -34,6 +34,7 @@ $column-margin: 4% !default; // space between columns
 // Layout Variables
 $header-height: 6rem;
 $footer-height: 4rem;
+$header-index: 100;
 
 // Functions
 @function grid-column-width($n) {

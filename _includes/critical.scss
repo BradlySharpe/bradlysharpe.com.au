@@ -36,6 +36,8 @@ body {
 	right: 0;
 	border-bottom: 1px solid $border-color;
   height: $header-height;
+  background: #fff;
+  z-index: $header-index;
 }
 
 .container {

@@ -48,9 +48,7 @@ body {
   box-sizing: border-box;
 }
 
-.content {
-  padding-top: $header-height + 1;
-  padding-bottom: $footer-height + 1;
+.page.container {
 }
 
 .column,

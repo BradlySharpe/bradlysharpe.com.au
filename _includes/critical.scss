@@ -48,7 +48,9 @@ body {
   box-sizing: border-box;
 }
 
-.page.container {
+.container.contentContainer {
+  padding-top: $header-height;
+  padding-bottom: $footer-height;
 }
 
 .column,

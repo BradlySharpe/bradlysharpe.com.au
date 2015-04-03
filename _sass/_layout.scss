@@ -51,19 +51,19 @@ $footer-height: 40px;
 
 	.facebook {
 		a {
-			background-position: 0 -$footer-height;
+			background-position: 0 (-$footer-height);
 		}
 	}
 
 	.googleplus {
 		a {
-			background-position: ($footer-height * -3) -$footer-height;
+			background-position: ($footer-height * -3) (-$footer-height);
 		}
 	}
 
 	.twitter {
 		a {
-			background-position: ($footer-height * -8) -$footer-height;
+			background-position: ($footer-height * -8) (-$footer-height);
 		}
 	}
 }

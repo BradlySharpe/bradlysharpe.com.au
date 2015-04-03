@@ -23,7 +23,12 @@ $footer-height: 40px;
 	font-family: $title-font-family;
 	line-height: $footer-height;
 	color: #999;
-	font-size: 1.4rem;
+	font-size: 1rem;
+
+	@include mq($bp-larger-than-phablet) {
+	  font-size: 1.4rem;
+	}
+
 }
 
 .social {

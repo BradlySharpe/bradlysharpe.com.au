@@ -203,6 +203,7 @@ $menu-width: 32rem;
   		a {
   			display: block;
   			text-decoration: none;
+        text-transform: uppercase;
   			text-align: center;
   			color: $dark-grey;
   			font-size: 2rem;
@@ -241,13 +242,19 @@ $menu-width: 32rem;
           text-decoration: none;
           text-align: center;
           color: $dark-grey;
-          font-size: 2rem;
+          font-size: 1.5rem;
+          font-weight: 300;
+          letter-spacing: 0.2rem;
+          line-height: 6rem;
           padding: 0;
           border-bottom: 0;
+          margin-right: 2.5rem;
+
           @include transition(color 500ms);
 
           &:hover {
             color: $primary-color;
+            background-color: transparent;
           }
         }
       }

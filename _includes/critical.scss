@@ -202,4 +202,11 @@ $menu-width: 32rem;
   }
 }
 
+.hero {
+  margin-top: 4rem;
+  background: url('/images/hero-background.jpg') center left;
+  background-size:cover;
+  @include border-radius;
+}
+
 @include button(button-black, $light-grey, $dark-grey, $dark-grey, $dark-grey, transparent, $dark-grey);

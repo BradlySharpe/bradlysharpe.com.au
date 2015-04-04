@@ -229,7 +229,7 @@ $menu-width: 32rem;
     top: auto;
     height: auto;
     width: auto;
-    max-width: auto;
+    max-width: inherit;
     background: inherit;
     border-left: 0;
     @include transition(none);

@@ -1,3 +1,9 @@
+.hero {
+  background: url('/images/hero-background.jpg') center left;
+  background-size:cover;
+  @include border-radius;
+}
+
 .footer {
 	background: #f2f2f2;
 	border-top: 1px solid $border-color;

@@ -269,9 +269,6 @@ $menu-width: 32rem;
 
 .hero {
   margin-top: 4rem;
-  background: url('/images/hero-background.jpg') center left;
-  background-size:cover;
-  @include border-radius;
 
   .opacity {
     padding: 10rem 1rem;

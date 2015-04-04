@@ -141,15 +141,23 @@ $menu-width: 32rem;
 	border:0;
 	clip:rect(0 0 0 0);
 	overflow:hidden;
-	
-	+ .navigationList {
-	  right: -$menu-width;
-	  opacity: 0;
-	}
 
-	&:checked + .navigationList {
-  	right: 0;
-  	opacity: 1; 
+  + .navigationList {
+    right: -$menu-width;
+    opacity: 0;
+  }
+
+  &:checked + .navigationList {
+    right: 0;
+    opacity: 1; 
+  }
+	
+  @include mq($bp-larger-than-tablet) {
+  	&:checked + .navigationList,
+    + .navigationList {
+  	  right: auto;
+  	  opacity: 1;
+  	}
   }
 }
 
@@ -199,6 +207,44 @@ $menu-width: 32rem;
   			}
   		}
   	}
+  }
+}
+
+@include mq($bp-larger-than-tablet) {
+  .navigationList {
+    position: relative;
+    top: auto;
+    height: auto;
+    width: auto;
+    max-width: auto;
+    background: inherit;
+    border-left: 0;
+    @include transition(none);
+
+    ul {
+      list-style: none;
+      margin: 0;
+      width: auto;
+
+      li {
+        margin-bottom: 0;
+
+        a {
+          display: inline-block;
+          text-decoration: none;
+          text-align: center;
+          color: $dark-grey;
+          font-size: 2rem;
+          padding: 0;
+          border-bottom: 0;
+          @include transition(color 500ms);
+
+          &:hover {
+            color: $primary-color;
+          }
+        }
+      }
+    }
   }
 }
 

@@ -52,7 +52,7 @@ body {
 
 .container.contentContainer {
   padding-top: $header-height;
-  padding-bottom: $footer-height;
+  padding-bottom: $footer-height + 4rem;
 }
 
 .column,

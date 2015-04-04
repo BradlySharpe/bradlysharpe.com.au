@@ -228,13 +228,13 @@ $menu-width: 32rem;
 
         @include mq($bp-larger-than-phablet) {
           display: inline-block;
-          
+
           &:after {
-            content: " ";
+            content: "\00a0";
           }
 
           &:nth-child(3) {
-            display: inline-block;
+            display: block;
           }
 
           &:nth-child(3):after {

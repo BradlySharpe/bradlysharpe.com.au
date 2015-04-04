@@ -201,3 +201,5 @@ $menu-width: 32rem;
   	}
   }
 }
+
+@include button(button-black, $light-grey, $dark-grey, $dark-grey, $dark-grey, $light-grey, $dark-grey);

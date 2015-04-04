@@ -125,6 +125,10 @@ button {
 .button-menu {
 	margin: 1rem 0;
 	padding: 0 15px !important;
+
+  @include mq($bp-larger-than-tablet) {
+    display: none;
+  }
 }
 
 .u-pull-right {
@@ -157,6 +161,7 @@ $menu-width: 32rem;
     + .navigationList {
   	  right: auto;
   	  opacity: 1;
+      display: inline-block;
   	}
   }
 }
@@ -171,6 +176,10 @@ $menu-width: 32rem;
   font-size: 2rem;
   font-weight: 400;
   font-family: $title-font-family;
+
+  @include mq($bp-larger-than-tablet) {
+    display: none;
+  }
 }
 
 .navigationList {
@@ -222,12 +231,10 @@ $menu-width: 32rem;
     @include transition(none);
 
     ul {
-      list-style: none;
-      margin: 0;
-      width: auto;
 
       li {
         margin-bottom: 0;
+        display: inline-block;
 
         a {
           display: inline-block;

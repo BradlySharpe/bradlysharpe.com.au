@@ -26,8 +26,8 @@
 
   <style type="text/css">
     /* Optimising above the fold content */
+    {% include raleway.css %}
     {% capture _critical_content %}
-      {% include raleway.scss %}
       {% include critical.scss %}
     {% endcapture %}
     {{ _critical_content | scssify }}

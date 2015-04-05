@@ -17,7 +17,7 @@
   })();
 	*/
 
-	{% assign stylesheetName = ("/css/style.css" | prepend: site.assets_url)}
+	{% assign stylesheetName = ("/css/style.css" | prepend: site.assets_url) %}
 	{% if page.btf %} 
 		{% assign stylesheetName = (page.btf | prepend: "/css/" | prepend: site.assets_url) %}
 	{% endif %}

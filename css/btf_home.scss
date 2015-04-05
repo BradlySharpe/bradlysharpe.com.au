@@ -1,0 +1,133 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+@charset "utf-8";
+
+@import
+    "settings",
+    "normalize",
+    "skeleton",
+    "syntax-highlighting",
+    "layout"
+;
+
+.services .one-third.column {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 2rem;
+
+  @include mq($bp-larger-than-tablet) {
+    width: grid-column-width(4);
+  }
+
+  img {
+    width: 100%;
+    max-width: 40%;
+    display: block;
+    margin: 2.5rem auto 0;
+
+    @include mq($bp-larger-than-phablet) {
+      max-width: 60%;
+    }
+  }
+
+  h3 {
+    margin: 0 0 2rem 0;
+    font-size: 3rem;
+    font-weight: 300;
+    font-family: $title-font-family;
+    line-height: 1.3;
+    letter-spacing: -0.1rem;
+
+    @include mq($bp-larger-than-desktop) {
+      font-size: 3.6rem;
+    }
+  }
+
+  p {
+  	margin-bottom: 0;
+  }
+}
+
+.testimonials {
+  h4 {
+    text-align: center;
+    margin-bottom: 0;
+  }
+
+  .testimonial {
+    p {
+      margin-bottom: 0;
+      margin-top: 2rem;
+    }
+
+    cite {
+      font-size: 2rem;
+      font-weight: 300;
+      font-family: $title-font-family;
+      font-style: normal;
+      text-align: right;
+      line-height: 1.5;
+      letter-spacing: -0.05rem;
+
+      .author:before {
+        content: "- ";
+      }
+
+      .author:after {
+        content: ", ";
+      }
+
+      .breaks {
+        display: block;
+        text-decoration: none;
+
+        @include mq($bp-larger-than-tablet) {
+          display: inline-block;
+        }
+      }
+    }
+  }
+}
+
+.profileImage {
+
+  img {
+    display: block;
+    width: 100%;
+    max-width: 40%;
+    margin: 0 auto 30px;
+    @include border-radius();
+
+    @include mq($bp-larger-than-tablet) {
+      max-width: 100%;
+      margin: 0 auto;
+    }
+  }
+
+  &.two.columns {
+    @include mq($bp-larger-than-phablet) {
+      width: 100%;
+      margin: 0;
+    }
+
+    @include mq($bp-larger-than-tablet) {
+      margin-right: 4%;
+      width: grid-column-width(2);
+    }
+  }
+}
+
+.profileBio {
+  &.nine.columns {
+    @include mq($bp-larger-than-phablet) {
+      width: 100%;
+      margin: 0;
+    }
+
+    @include mq($bp-larger-than-tablet) {
+      margin-left: 4%;
+      width: grid-column-width(9);
+    }
+  }
+}

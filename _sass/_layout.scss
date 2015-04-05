@@ -100,45 +100,40 @@
 .testimonials {
   h4 {
     text-align: center;
-  }
-}
-
-.testimonial {
-  p {
     margin-bottom: 0;
   }
 
-  cite {
-    font-size: 2rem;
-    font-weight: 300;
-    font-family: $title-font-family;
-    font-style: normal;
-    text-align: right;
-    line-height: 1.5;
-    letter-spacing: -0.05rem;
-    margin-bottom: 2rem;
-
-    .author:before {
-      content: "- ";
+  .testimonial {
+    p {
+      margin-bottom: 0;
+      margin-top: 2rem;
     }
 
-    .author:after {
-      content: ", ";
-    }
+    cite {
+      font-size: 2rem;
+      font-weight: 300;
+      font-family: $title-font-family;
+      font-style: normal;
+      text-align: right;
+      line-height: 1.5;
+      letter-spacing: -0.05rem;
 
-    .breaks {
-      display: block;
-      text-decoration: none;
+      .author:before {
+        content: "- ";
+      }
 
-      @include mq($bp-larger-than-tablet) {
-        display: inline-block;
+      .author:after {
+        content: ", ";
+      }
+
+      .breaks {
+        display: block;
+        text-decoration: none;
+
+        @include mq($bp-larger-than-tablet) {
+          display: inline-block;
+        }
       }
     }
-  }
-}
-
-.testimonial:last-child {
-  cite {
-    margin-bottom: 0;
   }
 }

@@ -17,6 +17,11 @@
   })();
 	*/
 
+	{% assign stylesheetName = ("/css/style.css" | prepend: site.assets_url)}
+	{% if page.btf %} 
+		{% assign stylesheetName = (page.btf | prepend: "/css/" | prepend: site.assets_url)}
+	{%endif %}
+
   /* Add callback to add styling for below the fold content */
 	var cb = function() {
 		/* Load async
@@ -25,9 +30,9 @@
 		l.rel = 'stylesheet';
 		l.media = "only x";
 		{% if page.btf %} 
-		l.href = "{{ page.btf | prepend: "/css/" | prepend: site.assets_url }}";
+		l.href = "{{ stylesheetName }}";
 		{% else %}
-		l.href = "{{ "/css/style.css" | prepend: site.assets_url }}";
+		l.href = "{{ stylesheetName }}";
 		{%endif %}
 		
 		var h = document.getElementsByTagName('head')[0]; 
@@ -38,9 +43,9 @@
 				sheets = window.document.styleSheets;
 			for(var i = 0, j = sheets.length; i < j; i++)
 				{% if page.btf %} 
-				defined = defined || (sheets[i].href && sheets[i].href.indexOf("{{ page.btf | prepend: "/css/" | prepend: site.assets_url }}") > -1);
+				defined = defined || (sheets[i].href && sheets[i].href.indexOf("{{ stylesheetName }}") > -1);
 				{% else %}
-				defined = defined || (sheets[i].href && sheets[i].href.indexOf("{{ "/css/style.css" | prepend: site.assets_url }}") > -1);
+				defined = defined || (sheets[i].href && sheets[i].href.indexOf("{{ stylesheetName }}") > -1);
 				{%endif %}
 			if(defined)
 				cb();

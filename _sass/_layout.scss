@@ -128,7 +128,7 @@
       display: block;
       text-decoration: none;
 
-      @include mq($bp-larger-than-phablet) {
+      @include mq($bp-larger-than-tablet) {
         display: inline-block;
       }
     }

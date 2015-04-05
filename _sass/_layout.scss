@@ -125,6 +125,8 @@
 
     .breaks {
       display: block;
+      text-decoration: none;
+
       @include mq($bp-larger-than-phablet) {
         display: inline-block;
       }

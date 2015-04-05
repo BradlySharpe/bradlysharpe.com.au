@@ -61,14 +61,15 @@
   
   img {
   	position: relative;
+  	min-height: 100%;
+  	min-width: 320px;
   	width: 100%;
+  	height: auto;
   	@include border-radius;
   }
 
   .title {
   	position: absolute;
-  	top: 200px;
-  	left: 0;
   	width: 100%;
 	  font-size: 3.6rem;
 	  font-weight: 300;

@@ -95,11 +95,6 @@ body {
 		font-size: 3.6rem;
 		line-height: 1.67;
 	}
-
-	@include mq($bp-larger-than-tablet) {
-		font-size: 4.2rem;
-		line-height: 1.45;
-	}
 }
 
 .button,

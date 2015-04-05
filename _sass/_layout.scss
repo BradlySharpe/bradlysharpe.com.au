@@ -137,3 +137,50 @@
     }
   }
 }
+
+.u-emphasis {
+  font-style: italic;
+  font-weight: 800;
+}
+
+.profileImage {
+
+  img {
+    display: block;
+    width: 100%;
+    max-width: 40%;
+    margin: 0 auto 30px;
+    @include border-radius();
+
+    @include mq($bp-larger-than-tablet) {
+      max-width: 100%;
+      margin: 0 auto;
+    }
+  }
+
+  &.two.columns {
+    @include mq($bp-larger-than-phablet) {
+      width: 100%;
+      margin: 0;
+    }
+
+    @include mq($bp-larger-than-tablet) {
+      margin-right: 4%;
+      width: grid-column-width(2);
+    }
+  }
+}
+
+.profileBio {
+  &.nine.columns {
+    @include mq($bp-larger-than-phablet) {
+      width: 100%;
+      margin: 0;
+    }
+
+    @include mq($bp-larger-than-tablet) {
+      margin-left: 4%;
+      width: grid-column-width(9);
+    }
+  }
+}

@@ -10,7 +10,47 @@ layout: compress
       {% include navigation.html %}
       <div class="container contentContainer">
         <div class="content">
-          {{ content }}
+          <div class="hero">
+            <div class="opacity">
+              <h1 class="title"><span class="break">Small Bisiness</span><span class="break">Web Developer</span><span class="break">&amp; IT Consultant</span></h1>
+              <a class="button button-black action" href="contact#reason=project-enquiry" onclick="hireMe();">Hire Me</a> 
+            </div>
+          </div>
+          <div class="row services u-border-bottom">
+            <div class="one-third column">
+              <img src="{{ site.images_url }}/images/responsive.svg" onerror="revertToPNG(this);" alt="Computer, tablet and mobile" />
+              <h3>Web Design</h3>
+              <p>Beautiful hand crafted, standards compliant websites that will make your website stand out from the crowd and looking pixel perfect on any device or web browser.</p>
+            </div>
+            <div class="one-third column">
+              <img src="{{ site.images_url }}/images/document.svg" onerror="revertToPNG(this);" alt="Code document" />
+              <h3>Programming</h3>
+              <p>Custom built desktop, mobile and web applications. Get a custom built application that does everything the way you need it done.</p>
+            </div>
+            <div class="one-third column">
+              <img src="{{ site.images_url }}/images/support.svg" onerror="revertToPNG(this);" alt="Suport person" />
+              <h3>IT Support</h3>
+              <p>Computer running slow? Internet not working? Can't print? Avoid the headache, get in touch now for quick, hassle free service or request a check up.</p>
+            </div>
+          </div>
+          <div class="row about u-border-bottom">
+            {% if page.title %}<h2 class="pageTitle">{{ page.title }}</h2>{% endif %}
+            {{ content }}
+          </div>
+          <div class="row testimonials">
+            <h4>Testimonials</h4>
+            {% for item in site.data.testimonial limit:3 %}
+            <div class="row">
+              <div class="ten columns offset-by-one testimonial">
+                <p>{{ item.testimonial }}</p>
+                <cite class="u-pull-right">
+                  <span class="author">{{ item.person }}</span>
+                  <a class="breaks" href="{{ item.url }}" rel="nofollow" target="_blank" title="{{ item.company }}">{{ item.company }}</a>
+                </cite>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
         </div>
       </div>
       <div class="footer">
@@ -20,5 +60,16 @@ layout: compress
       </div>
     </div>
     {% include footerScripts.html %}
+    <script type="text/javascript">
+      function revertToPNG(el) {
+          if (el && ("svg" == el.src.substr(el.src.lastIndexOf(".") + 1, el.src.length).toLowerCase())) 
+            el.src = el.src.substr(0, el.src.lastIndexOf(".")) + ".png";
+        }
+
+        function hireMe() {
+          if ("undefined" !== typeof ga)
+            ga('send', 'event', 'Home', 'click', 'Hire Me');
+        }
+    </script>
   </body>
 </html>

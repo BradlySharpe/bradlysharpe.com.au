@@ -17,9 +17,10 @@
   })();
 	*/
 
-	{% assign stylesheetName = ("/css/style.css" | prepend: site.assets_url) %}
 	{% if page.btf != nil %} 
-		{% assign stylesheetName = (page.btf | prepend: "/css/" | prepend: site.assets_url) %}
+		{% assign stylesheetName = page.btf | prepend: "/css/" %}
+	{% else %}
+		{% assign stylesheetName = "/css/style.css" %}
 	{% endif %}
 
   /* Add callback to add styling for below the fold content */
@@ -29,7 +30,7 @@
 		var l = document.createElement('link'); 
 		l.rel = 'stylesheet';
 		l.media = "only x";
-		l.href = "{{ stylesheetName }}";
+		l.href = "{{ stylesheetName | prepend: site.assets_url }}";
 		
 		var h = document.getElementsByTagName('head')[0]; 
 		h.appendChild(l);
@@ -38,7 +39,7 @@
 			var defined,
 				sheets = window.document.styleSheets;
 			for(var i = 0, j = sheets.length; i < j; i++)
-				defined = defined || (sheets[i].href && sheets[i].href.indexOf("{{ stylesheetName }}") > -1);
+				defined = defined || (sheets[i].href && sheets[i].href.indexOf("{{ stylesheetName | prepend: site.assets_url }}") > -1);
 			if(defined)
 				cb();
 			else

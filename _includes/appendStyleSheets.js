@@ -19,8 +19,8 @@
 
 	{% assign stylesheetName = ("/css/style.css" | prepend: site.assets_url)}
 	{% if page.btf %} 
-		{% assign stylesheetName = (page.btf | prepend: "/css/" | prepend: site.assets_url)}
-	{%endif %}
+		{% assign stylesheetName = (page.btf | prepend: "/css/" | prepend: site.assets_url) %}
+	{% endif %}
 
   /* Add callback to add styling for below the fold content */
 	var cb = function() {
@@ -29,11 +29,7 @@
 		var l = document.createElement('link'); 
 		l.rel = 'stylesheet';
 		l.media = "only x";
-		{% if page.btf %} 
 		l.href = "{{ stylesheetName }}";
-		{% else %}
-		l.href = "{{ stylesheetName }}";
-		{%endif %}
 		
 		var h = document.getElementsByTagName('head')[0]; 
 		h.appendChild(l);
@@ -42,11 +38,7 @@
 			var defined,
 				sheets = window.document.styleSheets;
 			for(var i = 0, j = sheets.length; i < j; i++)
-				{% if page.btf %} 
 				defined = defined || (sheets[i].href && sheets[i].href.indexOf("{{ stylesheetName }}") > -1);
-				{% else %}
-				defined = defined || (sheets[i].href && sheets[i].href.indexOf("{{ stylesheetName }}") > -1);
-				{%endif %}
 			if(defined)
 				cb();
 			else

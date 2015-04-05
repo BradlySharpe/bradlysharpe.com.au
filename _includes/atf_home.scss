@@ -49,3 +49,7 @@
     }
   }
 }
+
+@include mq($bp-larger-than-phablet) {
+  .one-third.column     { width: grid-column-width(4);  }
+}

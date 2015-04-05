@@ -24,6 +24,22 @@ layout: home
 		<p>Computer running slow? Internet not working? Can't print? Avoid the headache, get in touch now for quick, hassle free service or request a check up.</p>
 	</div>
 </div>
+<div class="row about u-border-bottom">
+	About Bradly Sharpe
+</div>
+<div class="row testimonials">
+	<h4>Testimonials</h4>
+	{% for item in site.data.testimonial limit:2 %}
+	<div class="row">
+		<p class="testimonial">{{ item.testimonial }}</p>
+		<cite class="u-pull-right">
+			<span class="author">{{ item.person }}</span>
+			<a class="breaks" href="{{ item.url }}" rel="nofollow" target="_blank" title="{{ item.company }}">{{ item.company }}</a>
+		</cite>
+	</div>
+	{% endfor %}
+</div>
+
 <script type="text/javascript">
 	function revertToPNG(el) {
       if (el && ("svg" == el.src.substr(el.src.lastIndexOf(".") + 1, el.src.length).toLowerCase())) 

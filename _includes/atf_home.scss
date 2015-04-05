@@ -2,8 +2,8 @@
 
 .hero {
   margin-top: 4rem;
-  background: url('/images/hero-background.jpg') center left;
-  background-size:cover;
+  /* background: url('/images/hero-background.jpg') center left;
+  background-size:cover;*/
   @include border-radius;
 
   .opacity {

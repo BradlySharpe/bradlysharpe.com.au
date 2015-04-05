@@ -9,8 +9,11 @@
   <!-- DNS Prefetch to load Google Analytics and Fonts faster -->
   <link rel="dns-prefetch" href="//www.google-analytics.com">
   <link rel="dns-prefetch" href="//ajax.googleapis.com">
+  <!-- 
+  Inlined font instead of getting from Google
   <link rel="dns-prefetch" href="//fonts.googleapis.com">
-  <link rel="dns-prefetch" href="//fonts.gstatic.com">
+  <link rel="dns-prefetch" href="//fonts.gstatic.com"> 
+  -->
 
   <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
   <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
@@ -24,6 +27,7 @@
   <style type="text/css">
     /* Optimising above the fold content */
     {% capture _critical_content %}
+      {% include raleway.scss %}
       {% include critical.scss %}
     {% endcapture %}
     {{ _critical_content | scssify }}

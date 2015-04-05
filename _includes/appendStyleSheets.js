@@ -1,5 +1,8 @@
 <script type="text/javascript">
 	/* Get Raleway font */
+	/*
+		Inline Font instead of getting it from Google
+	
 	WebFontConfig = {
     google: { families: [ 'Raleway:300:latin' ] }
   };
@@ -12,6 +15,7 @@
     var s = document.getElementsByTagName('script')[0];
     s.parentNode.insertBefore(wf, s);
   })();
+	*/
 
   /* Add callback to add styling for below the fold content */
 	var cb = function() {

@@ -17,9 +17,9 @@
   })();
 	*/
 
-	{% assign stylesheetName = "/css/style.css" | prepend: site.assets_url %}
-	{% if page.btf != "" %} 
-		{% assign stylesheetName = page.btf | prepend: "/css/" | prepend: site.assets_url %}
+	{% assign stylesheetName = ("/css/style.css" | prepend: site.assets_url) %}
+	{% if page.btf != nil %} 
+		{% assign stylesheetName = (page.btf | prepend: "/css/" | prepend: site.assets_url) %}
 	{% endif %}
 
   /* Add callback to add styling for below the fold content */

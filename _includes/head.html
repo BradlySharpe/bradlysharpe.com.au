@@ -29,6 +29,7 @@
     {% include raleway.css %}
     {% capture _critical_content %}
       {% include critical.scss %}
+      {% if page.atf %}{% include {{ page.atf }} %}{% endif %}
     {% endcapture %}
     {{ _critical_content | scssify }}
   </style>

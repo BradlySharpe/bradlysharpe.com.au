@@ -97,6 +97,41 @@
   }
 }
 
+.testimonials {
+  h4 {
+    text-align: center;
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+
+  cite {
+    font-size: 2rem;
+    font-weight: 300;
+    font-family: $title-font-family;
+    font-style: normal;
+    text-align: right;
+    line-height: 1.5;
+    letter-spacing: -0.05rem;
+
+    .author:before {
+      content: "- ";
+    }
+
+    .author:after {
+      content: ", ";
+    }
+
+    .breaks {
+      display: block;
+      @include mq($bp-larger-than-phablet) {
+        display: inline-block;
+      }
+    }
+  }
+}
+
 .footer {
 	background: #f2f2f2;
 	border-top: 1px solid $border-color;

@@ -29,13 +29,15 @@ layout: home
 </div>
 <div class="row testimonials">
 	<h4>Testimonials</h4>
-	{% for item in site.data.testimonial limit:2 %}
+	{% for item in site.data.testimonial limit:3 %}
 	<div class="row">
-		<p class="testimonial">{{ item.testimonial }}</p>
-		<cite class="u-pull-right">
-			<span class="author">{{ item.person }}</span>
-			<a class="breaks" href="{{ item.url }}" rel="nofollow" target="_blank" title="{{ item.company }}">{{ item.company }}</a>
-		</cite>
+		<div class="ten columns offest-by-one">
+			<p class="testimonial">{{ item.testimonial }}</p>
+			<cite class="u-pull-right">
+				<span class="author">{{ item.person }}</span>
+				<a class="breaks" href="{{ item.url }}" rel="nofollow" target="_blank" title="{{ item.company }}">{{ item.company }}</a>
+			</cite>
+		</div>
 	</div>
 	{% endfor %}
 </div>

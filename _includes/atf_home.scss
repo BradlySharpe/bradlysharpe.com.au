@@ -86,10 +86,6 @@
     max-width: 40%;
     display: block;
     margin: 2.5rem auto 0;
-
-    @include mq($bp-larger-than-phablet) {
-      max-width: 60%;
-    }
   }
 
   h3 {

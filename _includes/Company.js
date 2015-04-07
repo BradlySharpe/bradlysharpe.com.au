@@ -5,6 +5,7 @@
   "contactPoint" : [
     { "@type" : "ContactPoint",
       "telephone" : "{{ site.contactNumber }}",
-      "contactType" : "customer service"
+      "contactType" : "customer service",
+      "areaServed" : "AU"
     } ] }
 </script>

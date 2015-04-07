@@ -134,12 +134,7 @@ permalink: /contact/
             } else {
               switch (el.type) {
                 case "email":
-                    // Best we can match here is that:
-                    //   - it starts with a word
-                    //   - followed by an "@"
-                    //   - at least a 3 letter word will follow the "@"
-                    //   - then a "." followed by at least a 2 letter word (this can repeat multiple times for the rest of the word)
-                    if (!/^[a-z0-9\-\.]+@[a-z0-9\-]{3,}(\.[a-z0-9\-]{2,})+/.test(el.value.toLowerCase())) elValid = false;
+                    /* if (!/^[a-z0-9\-\.]+@[a-z0-9\-]{3,}(\.[a-z0-9\-]{2,})+/.test(el.value.toLowerCase())) elValid = false; */
                   break;
                 case "submit":
                   break;
@@ -184,14 +179,4 @@ permalink: /contact/
     }
     window.location.hash = "";
   }
-
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-60316482-1', 'auto');
-  ga('require', 'linkid', 'linkid.js');
-  ga('require', 'displayfeatures');
-  ga('send', 'pageview');
 </script>

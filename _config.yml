@@ -6,9 +6,14 @@ description: > #
 keywords: "Small, Business, IT, Consulting, Web, Development, Design, Warrnambool, Bradly, Sharpe"
 baseurl: ""
 url: "http://bradlysharpe.com.au"
-contactNumber: "+61403567735"
 images_url: ""
 assets_url: ""
+
+# Contact Info
+contactNumber: "+61403567735"
+facebookName: "BradlySharpeIT"
+twitterName: "BradlySharpeIT"
+googlePlusName: "BradlySharpeIT"
 
 # Build settings
 markdown: kramdown

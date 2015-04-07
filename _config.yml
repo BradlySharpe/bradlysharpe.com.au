@@ -10,7 +10,8 @@ images_url: ""
 assets_url: ""
 
 # Contact Info
-contactNumber: "+61403567735"
+localNumber: "0403 567 735"
+internationalNumber: "+61403567735"
 facebookName: "BradlySharpeIT"
 twitterName: "BradlySharpeIT"
 googlePlusName: "BradlySharpeIT"

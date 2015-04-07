@@ -89,6 +89,7 @@ body {
   a {
     text-decoration: none;
     color: $dark-grey;
+    @include transition(color 500ms);
   }
 
 	@include mq($bp-larger-than-phablet) {

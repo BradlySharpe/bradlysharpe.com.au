@@ -33,16 +33,8 @@
         @include mq($bp-larger-than-phablet) {
           display: inline-block;
 
-          &:after {
-            content: "\00a0";
-          }
-
           &:nth-child(3) {
             display: block;
-          }
-
-          &:nth-child(3):after {
-            content: "";
           }
         }
       }

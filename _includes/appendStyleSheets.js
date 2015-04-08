@@ -9,7 +9,7 @@
 	  raleway: "{{ "/css/raleway.css" | prepend: site.assets_url }}",
 	  style: "{{ stylesheetName | prepend: site.assets_url }}",
 	  styleKey : "{{ page.url | replace:'/','_' }}",
-    head: documenlink.getElementsByTagName("head")[0],
+    head: document.getElementsByTagName("head")[0],
     _localStorageSupported: function() {
 			try {
 				return localStorage.setItem("test", "test"), localStorage.removeItem("test"), !0

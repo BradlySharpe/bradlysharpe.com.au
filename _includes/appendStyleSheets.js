@@ -24,32 +24,69 @@
 	{% endif %}
 
   /* Add callback to add styling for below the fold content */
-	var cb = function() {
-		/* Load async
-			https://github.com/filamentgroup/loadCSS/blob/master/loadCSS.js*/
-		var l = document.createElement('link'); 
-		l.rel = 'stylesheet';
-		l.media = "only x";
-		l.href = "{{ stylesheetName | prepend: site.assets_url }}";
-		
-		var h = document.getElementsByTagName('head')[0]; 
-		h.appendChild(l);
+	var cssFile = "{{ stylesheetName | prepend: site.assets_url }}";
+	var fontFile = "{{ '/css/raleway.css' | prepend: site.assets_url }}";
+  var head = document.getElementsByTagName('head')[0]; 
 
-		l.onloadcssdefined = function( cb ){
-			var defined,
-				sheets = window.document.styleSheets;
-			for(var i = 0, j = sheets.length; i < j; i++)
-				defined = defined || (sheets[i].href && sheets[i].href.indexOf("{{ stylesheetName | prepend: site.assets_url }}") > -1);
-			if(defined)
-				cb();
-			else
-				setTimeout(function() { l.onloadcssdefined(cb); });
-		};
-		l.onloadcssdefined(function() { l.media = "all"; });
-	};
+  var load = function() {
+  	cb(fontFile);
+  	cb(cssFile);
+  }
 
-	var raf = requestAnimationFrame || mozRequestAnimationFrame ||
-	    webkitRequestAnimationFrame || msRequestAnimationFrame;
-	if (raf) raf(cb);
-	else window.addEventListener('load', cb);
+  var cb = function(href) {
+    /* Load async
+      https://github.com/filamentgroup/loadCSS/blob/master/loadCSS.js*/
+    var l = document.createElement('link'); 
+    l.rel = 'stylesheet';
+    l.media = "only x";
+    l.href = href;
+    head.appendChild(l);
+
+    l.onloadcssdefined = function(cb, href){
+      var defined,
+        sheets = window.document.styleSheets;
+      for(var i = 0, j = sheets.length; i < j; i++)
+        defined = defined || (sheets[i].href && sheets[i].href.indexOf(href) > -1);
+      if(defined)
+        cb();
+      else
+        setTimeout(function() { l.onloadcssdefined(cb, href); });
+    };
+    l.onloadcssdefined(function() { l.media = "all"; }, href);
+  };
+
+  var localStorageSupported = function() {
+    try {
+      localStorage.setItem('BS-test', 'true');
+      localStorage.removeItem('BS-test');
+      return true;
+    } catch(e) { return false; }
+  }
+
+  if (localStorageSupported() && localStorage.{{ page.id | replace:'/','-' }}) {
+    injectRawStyle(localStorage.getItem('{{ page.id | replace:'/','-' }}'));
+  } else {
+    var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+      webkitRequestAnimationFrame || msRequestAnimationFrame;
+    if (raf) raf(load);
+    else window.addEventListener('load', load);
+  }
+
+  function injectFontsStylesheet() {
+    var xhr = new XMLHttpRequest();
+      xhr.open('GET', cssFile, true);
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4) {
+          injectRawStyle(xhr.responseText);
+          localStorage.setItem('{{ page.id | replace:'/','-' }}', xhr.responseText);
+        }
+      }
+    xhr.send();
+  }
+
+  function injectRawStyle(text) {
+    var style = document.createElement('style');
+    style.innerHTML = text;
+    head.appendChild(style);
+  }
 </script>

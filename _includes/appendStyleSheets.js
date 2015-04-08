@@ -1,14 +1,12 @@
 <script type="text/javascript">
-  {% if page.btf != nil %} 
-    {% assign stylesheetName = page.btf | prepend: "/css/" %}
-  {% else %}
-    {% assign stylesheetName = "/css/style.css" %}
-  {% endif %}
-
 	var BSStyleSheets = {
 	  raleway: "{{ "/css/raleway.css" | prepend: site.assets_url }}",
-	  style: "{{ stylesheetName | prepend: site.assets_url }}",
-	  styleKey : "{{ page.url | replace:'/','_' }}",
+    style: "{{ "/css/style.css" | prepend: site.assets_url }}",
+  {% if page.btf != nil %} 
+  {% assign stylesheetName = page.btf | prepend: "/css/" %}
+    styleBTF: "{{ stylesheetName | prepend: site.assets_url }}",
+    styleBTFKey : "{{ page.url | replace:'/','_' }}",
+  {% endif %}
     head: document.getElementsByTagName("head")[0],
     _localStorageSupported: function() {
 			try {
@@ -51,7 +49,7 @@
       }
     },
     appendStyles: function() {
-      this._load("raleway", this.raleway), this._load(this.styleKey, this.style)
+      this._load("raleway", this.raleway), this._load("style", this.style){% if page.btf != nil %}, this._load(this.styleBTFKey, this.styleBTF){% endif %}
     }
   };
   BSStyleSheets.appendStyles();

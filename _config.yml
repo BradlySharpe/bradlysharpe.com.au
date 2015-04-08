@@ -6,7 +6,7 @@ description: > #
 keywords: "Small, Business, IT, Consulting, Web, Development, Design, Warrnambool, Bradly, Sharpe"
 baseurl: ""
 url: "http://dev.bradlysharpe.com.au"
-images_url: ""
+images_url: "/images/"
 assets_url: ""
 
 # Contact Info

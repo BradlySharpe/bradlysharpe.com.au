@@ -6,7 +6,7 @@
   "description" : "{{ site.description }}",
   "telephone" : "{{ site.localNumber }}",
   "url" : "{{ site.baseurl | prepend: site.url }}",
-  "logo" : "{% if site.images_url != "" %}{{ site.images_url }}{% else %}{{ site.baseurl | prepend: site.url }}{% endif %}/images/bradly-sharpe-logo.png",
+  "logo" : "{{ site.images_url }}bradly-sharpe-logo.png",
   "founder" : {
   	"@type" : "Person",
   	"givenName" : "Bradly",

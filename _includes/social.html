@@ -5,9 +5,9 @@
 <meta property="og:type" content="{% if page.openGraphType %}{{ page.openGraphType }}{% else %}website{% endif %}" />
 <meta property="og:url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}" />
 {% if page.featuredImage %}
-<meta property="og:image" content="{% if site.images_url != "" %}{{ site.images_url }}{% else %}{{ site.baseurl | prepend: site.url }}{% endif %}/images/{{ page.featuredImage }}" />
+<meta property="og:image" content="{{ site.images_url }}{{ page.featuredImage }}" />
 {% else %}
-<meta property="og:image" content="{% if site.images_url != "" %}{{ site.images_url }}{% else %}{{ site.baseurl | prepend: site.url }}{% endif %}/images/bradly-sharpe.jpg" />
+<meta property="og:image" content="{{ site.images_url }}bradly-sharpe.jpg" />
 {% endif %}
 
 <!-- Twitter -->
@@ -17,7 +17,7 @@
 <meta name="twitter:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}" />
 <meta name="twitter:url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}" />
 {% if page.featuredImage %}
-<meta name="twitter:image" content="{% if site.images_url != "" %}{{ site.images_url }}{% else %}{{ site.baseurl | prepend: site.url }}{% endif %}/images/{{ page.featuredImage }}" />
+<meta name="twitter:image" content="{{ site.images_url }}{{ page.featuredImage }}" />
 {% else %}
-<meta name="twitter:image" content="{% if site.images_url != "" %}{{ site.images_url }}{% else %}{{ site.baseurl | prepend: site.url }}{% endif %}/images/bradly-sharpe.jpg" />
+<meta name="twitter:image" content="{{ site.images_url }}bradly-sharpe.jpg" />
 {% endif %}

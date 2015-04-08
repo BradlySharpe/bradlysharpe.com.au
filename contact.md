@@ -43,8 +43,7 @@ atf: atf_contact.scss
   <div class="row">
     <div class="six columns captcha"><div class="g-recaptcha" data-sitekey="6LdN6gITAAAAAOnRcQWgBHrvMg7DIIwOBQqsV4em"></div>&nbsp;</div>
     <div class="six columns">
-      <input class="button-primary u-pull-right" type="submit" value="Submit">
-      <input class="u-pull-right contact-reset" type="reset" value="Reset">
+      <input class="contact-reset" type="reset" value="Reset"><input class="button-primary" type="submit" value="Submit">
     </div>
   </div>
 </form>

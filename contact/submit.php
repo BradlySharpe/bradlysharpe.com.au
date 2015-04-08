@@ -58,7 +58,7 @@
 
 
 			//Plain text body
-			$message .= "From: " . $fields['fullname'] . "\r\n";
+			$message  = "From: " . $fields['fullname'] . "\r\n";
 			$message .= "Email: " . $fields['email'] . "\r\n";
 			$message .= "Phone: " . $fields['phone'] . "\r\n";
 			$message .= "Reason: " . $fields['reason'] . "\r\n";
@@ -89,7 +89,8 @@
 </html>";
 			$message .= "\r\n\r\n--" . $boundary . "--";
 
-			$sent = mail($to, $subject, $message, $headers);
+			//$sent = mail($to, $subject, $message, $headers);
+			$sent = true;
 		}
 
 	} else {

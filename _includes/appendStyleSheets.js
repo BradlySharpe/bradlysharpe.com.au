@@ -5,7 +5,7 @@
     {% assign stylesheetName = "/css/style.css" %}
   {% endif %}
 
-	var stylesheets = {
+	var BSStyleSheets = {
 	  raleway: "{{ "/css/raleway.css" | prepend: site.assets_url }}",
 	  style: "{{ stylesheetName | prepend: site.assets_url }}",
 	  styleKey : "{{ page.url | replace:'/','_' }}",
@@ -23,7 +23,7 @@
 	    xhr.open('GET', href, true);
 	    xhr.onreadystatechange = function() {
 	      if (xhr.readyState === 4) {
-	        this._injectStyle(xhr.responseText);
+	        BSStyleSheets._injectStyle(xhr.responseText);
 	        localStorage.setItem(key, xhr.responseText);
 	      }
 	    }
@@ -40,7 +40,7 @@
 	    for(var i = 0, j = sheets.length; i < j; i++)
 	      defined = defined || (sheets[i].href && sheets[i].href.indexOf(href) > -1);
 	    if(defined) callback();
-	    else setTimeout(function() { this._checkStyleLoaded(callback, href); });
+	    else setTimeout(function() { BSStyleSheets._checkStyleLoaded(callback, href); });
 	  },
 	  _fetchStyle : function(href) {
 	    var l = document.createElement('link'); 
@@ -51,20 +51,22 @@
 	    this._checkStyleLoaded(function() { l.media = "all"; }, href)
 	  },
 	  _load : function(key, href) {
-	    if (this._localStorageSupported() && localStorage[key]) {
-	      this._injectStyle(localStorage.getItem(key));
-	    } else {
+			if (this._localStorageSupported()) {
+				if (localStorage[key]) this._injectStyle(localStorage.getItem(key));
+				else this._fetchAndSet(key, href);
+			} else {
 	      var raf = requestAnimationFrame || mozRequestAnimationFrame ||
 	        webkitRequestAnimationFrame || msRequestAnimationFrame;
-	      if (raf) raf(function() { this._fetchStyle(href); });
-	      else window.addEventListener('load', function() { this._fetchStyle(href); });
+	      var callback = function() { BSStyleSheets._fetchStyle(href); };
+	      if (raf) raf(callback);
+	      else window.addEventListener('load', callback);
 	    }
 	  },
-	  append : function() {
+	  appendStyles : function() {
 	    this._load("raleway", this.raleway);
 	    this._load(this.styleKey, this.style);
 	  }
 	}
 
-	stylesheets.append();
+	BSStyleSheets.appendStyles();
 </script>

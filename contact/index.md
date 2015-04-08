@@ -86,7 +86,7 @@ atf: atf_contact.scss
     var reason = getReasonField();
     if (reason)
       window.location.hash="reason=" + reason.value;
-    window.location.pathname = window.location.pathname + "/thankyou";
+    window.location.pathname = window.location.pathname + "/thankyou.html";
   }
 
   function removeClass(el, className) {

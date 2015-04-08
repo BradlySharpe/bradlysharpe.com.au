@@ -89,8 +89,7 @@
 </html>";
 			$message .= "\r\n\r\n--" . $boundary . "--";
 
-			//$sent = mail($to, $subject, $message, $headers);
-			$sent = true;
+			$sent = mail($to, $subject, $message, $headers);
 		}
 
 	} else {

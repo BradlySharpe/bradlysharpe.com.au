@@ -1,96 +1,70 @@
 <script type="text/javascript">
-	/* Get Raleway font */
-	/*
-		Inline Font instead of getting it from Google
-	
-	WebFontConfig = {
-    google: { families: [ 'Raleway:300:latin' ] }
-  };
-  (function() {
-    var wf = document.createElement('script');
-    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
-      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
-    wf.type = 'text/javascript';
-    wf.async = 'true';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(wf, s);
-  })();
-	*/
+  {% if page.btf != nil %} 
+    {% assign stylesheetName = page.btf | prepend: "/css/" %}
+  {% else %}
+    {% assign stylesheetName = "/css/style.css" %}
+  {% endif %}
 
-	{% if page.btf != nil %} 
-		{% assign stylesheetName = page.btf | prepend: "/css/" %}
-	{% else %}
-		{% assign stylesheetName = "/css/style.css" %}
-	{% endif %}
+	var stylesheets = {
+	  raleway: "{{ "/css/raleway.css" | prepend: site.assets_url }}",
+	  style: "{{ stylesheetName | prepend: site.assets_url }}",
+	  styleKey : "{{ page.url | replace:'/','_' }}",
+	  head: document.getElementsByTagName('head')[0],
+	  _localStorageSupported : function() {
+	    try {
+	      localStorage.setItem('test', 'test');
+	      localStorage.removeItem('test');
+	      return true;
+	    } 
+	    catch(e) { return false; }
+	  },
+	  _fetchAndSet : function(key, href) {
+	    var xhr = new XMLHttpRequest();
+	    xhr.open('GET', href, true);
+	    xhr.onreadystatechange = function() {
+	      if (xhr.readyState === 4) {
+	        this._injectStyle(xhr.responseText);
+	        localStorage.setItem(key, xhr.responseText);
+	      }
+	    }
+	    xhr.send();
+	  },
+	  _injectStyle: function(text) {
+	    var style = document.createElement('style');
+	    style.innerHTML = text;
+	    this.head.appendChild(style);
+	  },
+	  _checkStyleLoaded : function(callback, href) {
+	    var defined,
+	      sheets = window.document.styleSheets;
+	    for(var i = 0, j = sheets.length; i < j; i++)
+	      defined = defined || (sheets[i].href && sheets[i].href.indexOf(href) > -1);
+	    if(defined) callback();
+	    else setTimeout(function() { this._checkStyleLoaded(callback, href); });
+	  },
+	  _fetchStyle : function(href) {
+	    var l = document.createElement('link'); 
+	    l.rel = 'stylesheet';
+	    l.media = "only x";
+	    l.href = href;
+	    this.head.appendChild(l);
+	    this._checkStyleLoaded(function() { l.media = "all"; }, href)
+	  },
+	  _load : function(key, href) {
+	    if (this._localStorageSupported() && localStorage[key]) {
+	      this._injectStyle(localStorage.getItem(key));
+	    } else {
+	      var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+	        webkitRequestAnimationFrame || msRequestAnimationFrame;
+	      if (raf) raf(function() { this._fetchStyle(href); });
+	      else window.addEventListener('load', function() { this._fetchStyle(href); });
+	    }
+	  },
+	  append : function() {
+	    this._load("raleway", this.raleway);
+	    this._load(this.styleKey, this.style);
+	  }
+	}
 
-  /* Add callback to add styling for below the fold content */
-	var cssFile = "{{ stylesheetName | prepend: site.assets_url }}",
-		fontFile = "{{ "/css/raleway.css" | prepend: site.assets_url }}",
-  	head = document.getElementsByTagName('head')[0]; 
-
-  var load = function() {
-  	cb(fontFile);
-  	cb(cssFile);
-  };
-
-  var cb = function(href) {
-    /* Load async
-      https://github.com/filamentgroup/loadCSS/blob/master/loadCSS.js*/
-    var l = document.createElement('link'); 
-    l.rel = 'stylesheet';
-    l.media = "only x";
-    l.href = href;
-    head.appendChild(l);
-
-    l.onloadcssdefined = function(cb, href){
-      var defined,
-        sheets = window.document.styleSheets;
-      for(var i = 0, j = sheets.length; i < j; i++)
-        defined = defined || (sheets[i].href && sheets[i].href.indexOf(href) > -1);
-      if(defined)
-        cb();
-      else
-        setTimeout(function() { l.onloadcssdefined(cb, href); });
-    };
-    l.onloadcssdefined(function() { l.media = "all"; }, href);
-  };
-
-  var localStorageSupported = function() {
-    try {
-      localStorage.setItem('BS-test', 'true');
-      localStorage.removeItem('BS-test');
-      return true;
-    } catch(e) { return false; }
-  };
-  /* Page ID = {{ page.id }} */
-  /* Page ID Replaced = {{ page.id | replace:'/','-' }} */
-  /* Page URL = {{ page.url }} */
-  /* Page URL Replaced = {{ page.url | replace:'/','-' }} */
-  item = "{{ page.id | replace:'/','-' }}"
-  if (localStorageSupported() && localStorage[item]) {
-    injectRawStyle(localStorage.getItem(item));
-  } else {
-    var raf = requestAnimationFrame || mozRequestAnimationFrame ||
-      webkitRequestAnimationFrame || msRequestAnimationFrame;
-    if (raf) raf(load);
-    else window.addEventListener('load', load);
-  }
-
-  function injectFontsStylesheet() {
-    var xhr = new XMLHttpRequest();
-      xhr.open('GET', cssFile, true);
-      xhr.onreadystatechange = function() {
-        if (xhr.readyState === 4) {
-          injectRawStyle(xhr.responseText);
-          localStorage.setItem(item, xhr.responseText);
-        }
-      }
-    xhr.send();
-  }
-
-  function injectRawStyle(text) {
-    var style = document.createElement('style');
-    style.innerHTML = text;
-    head.appendChild(style);
-  }
+	stylesheets.append();
 </script>

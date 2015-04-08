@@ -7,7 +7,7 @@ atf: atf_contact.scss
 <div>
 	Required fields marked with <span class=".u-required">*</span>
 </div>
-<form name="contactForm" onsubmit="return validate(this);" method="post" action="submitContactForm.php">
+<form name="contactForm" onsubmit="return validate(this);" method="post" action="submit.php">
   <div class="row">
     <div class="six columns">
       <label for="email">Email Address <span class=".u-required">*</span></label>
@@ -42,12 +42,10 @@ atf: atf_contact.scss
   </div>
   <div class="row">
     <div class="nine columns captcha"><div class="g-recaptcha" data-sitekey="6LdN6gITAAAAAOnRcQWgBHrvMg7DIIwOBQqsV4em"></div>&nbsp;</div>
-    <div class="three columns">
-      <input class="contact-reset" type="reset" value="Reset"><input class="button-primary" type="submit" value="Submit">
-    </div>
+    <div class="three columns"><input class="button-primary u-pull-right" type="submit" value="Submit"></div>
   </div>
 </form>
-<script src='https://www.google.com/recaptcha/api.js'></script>
+{% include googleCaptcha.js %}
 <script type="text/javascript">
   function validate(form) {
     try {
@@ -81,7 +79,7 @@ atf: atf_contact.scss
   }
 
   function postError() {
-    alert("Sorry there was a problem submitting the form.\nPlease try again or call me on 0403 567 735");
+    alert("Sorry there was a problem submitting the form.\nPlease try again or call me on {{ site.localNumber }}");
   }
 
   function postSuccess() {

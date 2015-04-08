@@ -237,6 +237,8 @@ select {
 	}
 }
 
-.contact-reset {
-	margin-right: 10px;
+input[type="submit"] {
+	@include mq($bp-larger-than-phablet) {
+		margin-top: 38px;
+	}
 }

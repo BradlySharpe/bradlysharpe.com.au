@@ -24,14 +24,14 @@
 	{% endif %}
 
   /* Add callback to add styling for below the fold content */
-	var cssFile = "{{ stylesheetName | prepend: site.assets_url }}";
-	var fontFile = "{{ '/css/raleway.css' | prepend: site.assets_url }}";
-  var head = document.getElementsByTagName('head')[0]; 
+	var cssFile = "{{ stylesheetName | prepend: site.assets_url }}",
+		fontFile = "{{ "/css/raleway.css" | prepend: site.assets_url }}",
+  	head = document.getElementsByTagName('head')[0]; 
 
   var load = function() {
   	cb(fontFile);
   	cb(cssFile);
-  }
+  };
 
   var cb = function(href) {
     /* Load async
@@ -61,10 +61,10 @@
       localStorage.removeItem('BS-test');
       return true;
     } catch(e) { return false; }
-  }
+  };
 
-  if (localStorageSupported() && localStorage.{{ page.id | replace:'/','-' }}) {
-    injectRawStyle(localStorage.getItem('{{ page.id | replace:'/','-' }}'));
+  if (localStorageSupported() && localStorage["BS-{{ page.id | replace:'/','-' }}"]) {
+    injectRawStyle(localStorage.getItem("BS-{{ page.id | replace:'/','-' }}"));
   } else {
     var raf = requestAnimationFrame || mozRequestAnimationFrame ||
       webkitRequestAnimationFrame || msRequestAnimationFrame;

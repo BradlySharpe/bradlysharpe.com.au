@@ -5,7 +5,7 @@
 	  $_SERVER['REMOTE_ADDR'] = $_SERVER['HTTP_X_FORWARDED_FOR'];
 	}
 
-	$filePath = 'inc' . DIRECTORY_SEPARATOR . 'recaptchalib.php';
+	$filePath = 'recaptchalib.php';
 
 	require_once($filePath);
 

@@ -213,3 +213,28 @@ select {
   width: 100%;
   box-sizing: border-box;
 }
+
+.captcha {
+	height: 95px;
+	@include mq($bp-larger-than-phablet) {
+		height: auto;
+	}
+
+	.g-recaptcha {
+		position: absolute;
+		left: 50%;
+		width: 304px;
+		margin-left: -152px;
+
+		@include mq($bp-larger-than-phablet) {
+			position: relative;
+			left: auto;
+			width: auto;
+			margin-left: 0;
+		}
+	}
+}
+
+.contact-reset {
+	margin-right: 10px;
+}

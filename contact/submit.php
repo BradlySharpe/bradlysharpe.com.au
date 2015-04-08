@@ -50,11 +50,11 @@
 			$subject = "Contact Form - " . ucfirst($reason);
 			$boundary = uniqid('np');
 
-			$headers  = "MIME-Version: 1.0\r\n";
-			$headers .= "From: " . $fields['email'] . "\r\n";
-			$headers .= "Reply-To: ". $fields['email'] . "\r\n";
-			$headers .= "Content-Type: multipart/alternative;boundary=" . $boundary . "\r\n";
-			//$headers .= "CC: susan@example.com\r\n";
+			$headers  = "MIME-Version: 1.0\n";
+			$headers .= "From: " . $fields['email'] . "\n";
+			$headers .= "Reply-To: ". $fields['email'] . "\n";
+			$headers .= "Content-Type: multipart/alternative;boundary=" . $boundary . "\n";
+			//$headers .= "CC: susan@example.com\n";
 
 
 			//Plain text body

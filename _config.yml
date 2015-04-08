@@ -6,8 +6,9 @@ description: > #
 keywords: "Small, Business, IT, Consulting, Web, Development, Design, Warrnambool, Bradly, Sharpe"
 baseurl: ""
 url: "http://dev.bradlysharpe.com.au"
-images_url: "/images/"
-assets_url: ""
+# images_url: "/images/"
+images_url: "//images.cdn.bradlysharpe.com.au/"
+assets_url: "//styles.cdn.bradlysharpe.com.au/"
 
 # Contact Info
 localNumber: "0403 567 735"

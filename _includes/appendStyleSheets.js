@@ -18,20 +18,15 @@
 	    } 
 	    catch(e) { return false; }
 	  },
-	  _stateChange : function() {
-	  	console.log(arguments);
-	  	/*
-	  	if (xhr.readyState === 4) {
-				BSStyleSheets._injectStyle(xhr.responseText);
-				localStorage.setItem(key, xhr.responseText);
-			}
-			*/
-	  },
 	  _fetchAndSet : function(key, href) {
 	    var xhr = new XMLHttpRequest();
 	    xhr.open('GET', href, true);
-	    xhr.keyName = key;
-	    xhr.onreadystatechange = BSStyleSheets._stateChange;
+	    xhr.onreadystatechange = function() {
+	      if (xhr.readyState === 4) {
+	        BSStyleSheets._injectStyle(xhr.responseText);
+	        localStorage.setItem(key, xhr.responseText);
+	      }
+	    }
 	    xhr.send();
 	  },
 	  _injectStyle: function(text) {

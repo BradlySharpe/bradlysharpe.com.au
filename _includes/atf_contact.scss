@@ -14,7 +14,9 @@
     margin-left: 0;
   }
 
+  .three.columns        { width: grid-column-width(3);  }
   .six.columns          { width: grid-column-width(6);  }
+  .nine.columns         { width: grid-column-width(9);  }
 }
 
 input {

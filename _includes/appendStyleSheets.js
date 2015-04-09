@@ -1,5 +1,6 @@
 <script type="text/javascript">
 	var BSStyleSheets = {
+    stored: "_stored",
 	  raleway: "{{ "/css/raleway.css" | prepend: site.assets_url }}",
     style: "{{ "/css/style.css" | prepend: site.assets_url }}",
   {% if page.btf != nil %} 
@@ -15,10 +16,14 @@
 				return !1
 			}
     },
+    _getToday: function() {
+      var today = new Date();
+      return new Date(today.getUTCFullYear(), today.getUTCMonth(), today.getUTCDate());
+    },
     _fetchAndSet: function(key, href) {
 			var xhr = new XMLHttpRequest;
-			console.log("Fetching and Setting: " + key), xhr.open("GET", href, !0), xhr.onreadystatechange = function() {
-				4 === xhr.readyState && (BSStyleSheets._injectStyle(xhr.responseText), localStorage.setItem(key, xhr.responseText))
+      console.log("Fetching and Setting: " + key), xhr.open("GET", href, !0), xhr.onreadystatechange = function() {
+				4 === xhr.readyState && (BSStyleSheets._injectStyle(xhr.responseText), localStorage.setItem(key, xhr.responseText), localStorage.setItem(key+BSStyleSheets.stored, BSStyleSheets._getToday().toJSON()))
 			}, xhr.send()
     },
     _injectStyle: function(text) {
@@ -42,9 +47,19 @@
       console.log("Loading: " + key);
       if (this._localStorageSupported()) {
         if (localStorage[key] && ("" != localStorage[key])) {
-          console.log("Cache Hit: " + key);
-          this._injectStyle(localStorage.getItem(key));
-        } else this._fetchAndSet(key, href);
+          if (localStorage[key+"_stored"] && ("" != localStorage[key])) {
+            try {
+              var stored = new Date(localStorage[key+"_stored"]);
+              if ((this._getToday() - stored) < 1) {
+                console.log("Cache Hit: " + key);
+                this._injectStyle(localStorage.getItem(key));
+                return !0;
+              }
+              console.log("Cache expired: " + key, stored);
+            } catch (e) { console.log("Error checking cache", e)}
+          }
+        }
+        this._fetchAndSet(key, href);
       } else {
         var raf = requestAnimationFrame || mozRequestAnimationFrame || webkitRequestAnimationFrame || msRequestAnimationFrame,
           callback = function() {

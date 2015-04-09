@@ -39,7 +39,7 @@
       }, href)
     },
     _load: function(key, href) {
-      console.log("Loading: " + key)
+      console.log("Loading: " + key);
       if (this._localStorageSupported()) {
         if (localStorage[key] && ("" != localStorage[key])) {
           console.log("Cache Hit: " + key);

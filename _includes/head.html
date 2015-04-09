@@ -34,4 +34,12 @@
     {% endcapture %}
     {{ _critical_content | scssify }}
   </style>
+  
+  <noscript>
+    <link rel="stylesheet" media="all" href="{{ "/css/raleway.css" | prepend: site.assets_url }}" />
+  {% if page.btf != nil %} 
+  {% assign stylesheetName = page.btf | prepend: "/css/" %}
+    <link rel="stylesheet" media="all" href="{{ stylesheetName | prepend: site.assets_url }}" />
+  {% endif %}
+  </noscript>
 </head>

@@ -17,7 +17,7 @@
     },
     _fetchAndSet: function(key, href) {
 			var xhr = new XMLHttpRequest;
-			xhr.open("GET", href, !0), xhr.onreadystatechange = function() {
+			console.log("Fetching and Setting: " + key), xhr.open("GET", href, !0), xhr.onreadystatechange = function() {
 				4 === xhr.readyState && (BSStyleSheets._injectStyle(xhr.responseText), localStorage.setItem(key, xhr.responseText))
 			}, xhr.send()
     },
@@ -34,13 +34,18 @@
     },
     _fetchStyle: function(href) {
       var link = document.createElement("link");
-      link.rel = "stylesheet", link.media = "only x", link.href = href, this.head.appendChild(link), this._checkStyleLoaded(function() {
+      console.log("Async Fallback"), link.rel = "stylesheet", link.media = "only x", link.href = href, this.head.appendChild(link), this._checkStyleLoaded(function() {
         link.media = "all"
       }, href)
     },
     _load: function(key, href) {
-      if (this._localStorageSupported()) localStorage[key] ? this._injectStyle(localStorage.getItem(key)) : this._fetchAndSet(key, href);
-      else {
+      console.log("Loading: " + key)
+      if (this._localStorageSupported()) {
+        if (localStorage[key] && ("" != localStorage[key])) {
+          console.log("Cache Hit: " + key);
+          this._injectStyle(localStorage.getItem(key));
+        } else this._fetchAndSet(key, href);
+      } else {
         var raf = requestAnimationFrame || mozRequestAnimationFrame || webkitRequestAnimationFrame || msRequestAnimationFrame,
           callback = function() {
             BSStyleSheets._fetchStyle(href)

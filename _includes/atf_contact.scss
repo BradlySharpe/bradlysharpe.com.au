@@ -1,8 +1,7 @@
 @charset "utf-8";
 
 @import
-    "settings",
-    "contentPadding";
+    "settings";
 
 @include mq($bp-larger-than-phablet) {
   .column,

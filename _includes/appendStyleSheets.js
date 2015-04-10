@@ -73,4 +73,5 @@
     }
   };
   BSStyleSheets.appendStyles();
+  var resetStyles = function() { try { localStorage.clear(); window.location.reload(); } catch (e) {} }
 </script>

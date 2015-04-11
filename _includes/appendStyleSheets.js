@@ -44,29 +44,31 @@
       }, href)
     },
     _load: function(key, href) {
-      console.log("Loading: " + key);
-      if (this._localStorageSupported()) {
-        if (localStorage[key] && ("" != localStorage[key])) {
-          if (localStorage[key+"_stored"] && ("" != localStorage[key])) {
-            try {
-              var stored = new Date(localStorage[key+"_stored"]);
-              if ((this._getToday() - stored) < 1) {
-                console.log("Cache Hit: " + key);
-                this._injectStyle(localStorage.getItem(key));
-                return !0;
-              }
-              console.log("Cache expired: " + key, stored);
-            } catch (e) { console.log("Error checking cache", e)}
+      setTimeout(function() {
+        console.log("Loading: " + key);
+        if (this._localStorageSupported()) {
+          if (localStorage[key] && ("" != localStorage[key])) {
+            if (localStorage[key+"_stored"] && ("" != localStorage[key])) {
+              try {
+                var stored = new Date(localStorage[key+"_stored"]);
+                if ((this._getToday() - stored) < 1) {
+                  console.log("Cache Hit: " + key);
+                  this._injectStyle(localStorage.getItem(key));
+                  return !0;
+                }
+                console.log("Cache expired: " + key, stored);
+              } catch (e) { console.log("Error checking cache", e)}
+            }
           }
+          this._fetchAndSet(key, href);
+        } else {
+          var raf = requestAnimationFrame || mozRequestAnimationFrame || webkitRequestAnimationFrame || msRequestAnimationFrame,
+            callback = function() {
+              BSStyleSheets._fetchStyle(href)
+          	};
+          raf ? raf(callback) : window.addEventListener("load", callback)
         }
-        this._fetchAndSet(key, href);
-      } else {
-        var raf = requestAnimationFrame || mozRequestAnimationFrame || webkitRequestAnimationFrame || msRequestAnimationFrame,
-          callback = function() {
-            BSStyleSheets._fetchStyle(href)
-        	};
-        raf ? raf(callback) : window.addEventListener("load", callback)
-      }
+      }, 0);
     },
     appendStyles: function() {
       this._load("raleway", this.raleway), this._load("style", this.style){% if page.btf != nil %}, this._load(this.styleBTFKey, this.styleBTF){% endif %}

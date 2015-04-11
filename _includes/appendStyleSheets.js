@@ -44,7 +44,7 @@
       }, href)
     },
     _load: function(key, href) {
-      setTimeout(function() {
+      setTimeout(function(key, href) {
         console.log("Loading: " + key);
         if (this._localStorageSupported()) {
           if (localStorage[key] && ("" != localStorage[key])) {

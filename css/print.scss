@@ -36,15 +36,16 @@ body {
 }
 
 a {
-	color: black !important;
 	font-family: sans-serif;
 
 	&:after {
+		color: black !important;
 		content: " (" attr(href) ")";
 		font-size: 80%;
 	}
 
 	&[href^="#"]:after {
+		color: black !important;
 		display: none;
 	}
 

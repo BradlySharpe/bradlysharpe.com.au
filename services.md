@@ -33,7 +33,7 @@ permalink: /services/
 {% assign serviceCount = 0 %}
 <div class="cetegoryItems">
 {% for service in site.services %}
-  {% if service.featured = nil or service.featured == false %}
+  {% if service.featured == nil or service.featured == false %}
   {% assign serviceCount=serviceCount | plus:1 %} 
   <div class="categoryItem">
     <h4 class="serviceTitle"><a href="{{ BASE_PATH }}{{ service.url }}">{{ service.title }}</a></h4>

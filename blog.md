@@ -34,7 +34,7 @@ permalink: /blog/
 {% assign post_count = 0 %}
 <div class="cetegoryItems">
 {% for post in site.posts %}
-  {% if post.featured = nil or post.featured == false %}
+  {% if post.featured == nil or post.featured == false %}
   {% assign post_count=post_count | plus:1 %} 
   <div class="categoryItem">
     <h4 class="postTitle"><a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></h4>

@@ -36,6 +36,9 @@ body {
 }
 
 a {
+	color: black;
+	font-family: sans-serif;
+	
 	&:after {
 		content: " (" attr(href) ")";
 		font-size: 80%;

@@ -1,28 +1,12 @@
 module Jekyll
-  class ServiceExcerpt < Liquid::Tag
-
-  	include Liquid::StandardFilters
-    Syntax = /(#{Liquid::QuotedFragment}+)?/ 
-
-    def initialize(tag_name, text, tokens)
-    	@attributes = {}
-      
-      if markup =~ Syntax
-        markup.scan(Liquid::TagAttributes) do |key, value|
-          @attributes[key] = value
-        end
+  module ServiceExcerpt
+    def service_excerpt(content, sep=nil)
+      if sep == nil
+      	sep = "\n"
       end
-
-      @sep = @attributes.has_key?('sep') ? @attributes['sep'] : "\n"
-      @excerpt = text
-      super
-    end
-
-    def render(context)
-    	"Spliting with #{@sep} in #{@excerpt}"
-      @excerpt.slice(0, @excerpt.index(@sep))
+      content.slice(0, content.index(sep))
     end
   end
 end
 
-Liquid::Template.register_tag('service_excerpt', Jekyll::ServiceExcerpt)
+Liquid::Template.register_filter(Jekyll::ServiceExcerpt)

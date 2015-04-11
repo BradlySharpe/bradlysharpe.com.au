@@ -1,3 +1,12 @@
+body {
+	color: black;
+	font-size: 12pt;
+}
+
+.container {
+	width: 100%;
+}
+
 .header,
 .footer {
 	display: none;
@@ -15,8 +24,8 @@
 	}
 }
 
-.content {
-	width: 100%;
+a:after {
+	content: " (" attr(href) ") ";
 }
 
 .contentContainer,

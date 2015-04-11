@@ -14,6 +14,12 @@
   {% if site.images_url != "" %}
   <link rel="dns-prefetch" href="{{ site.images_url }}">
   {% endif %}
+  {% if page.captcha != nil and page.captcha == true %}
+  <link rel="dns-prefetch" href="//www.google.com">
+  <link rel="dns-prefetch" href="//www.gstatic.com">
+  <link rel="dns-prefetch" href="//apis.google.com">
+  <link rel="dns-prefetch" href="//fonts.gstatic.com">
+  {% endif %}
   <!-- 
   Inlined font instead of getting from Google
   <link rel="dns-prefetch" href="//ajax.googleapis.com">

@@ -3,6 +3,7 @@ layout: default
 title: Contact Bradly Sharpe
 permalink: /contact/
 atf: atf_contact.scss
+captcha: true
 ---
 <div>
 	Required fields marked with <span class=".u-required">*</span>

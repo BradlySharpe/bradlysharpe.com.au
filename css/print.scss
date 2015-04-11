@@ -36,9 +36,9 @@ body {
 }
 
 a {
-	color: black;
+	color: black !important;
 	font-family: sans-serif;
-	
+
 	&:after {
 		content: " (" attr(href) ")";
 		font-size: 80%;
@@ -52,7 +52,7 @@ a {
 
 .content.contentContainer,
 .content {
-	padding: 0;
+	padding: 0 !important;
 }
 
 .column,

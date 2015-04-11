@@ -12,8 +12,8 @@ collections:
   services:
     output: true
     permalink: /:collection/:path/
-images_url: "/images/"
-# images_url: "//images.cdn.bradlysharpe.com.au/"
+# images_url: "/images/"
+images_url: "//images.cdn.bradlysharpe.com.au/"
 assets_url: ""
 # assets_url: "//styles.cdn.bradlysharpe.com.au/"
 

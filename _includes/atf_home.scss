@@ -79,13 +79,13 @@
     margin: 2.5rem auto 0;
     background-size: 100%; 
 
-    .document { 
+    &.document { 
       background-position: 0 0%; 
     }
-    .responsive { 
+    &.responsive { 
       background-position: 0 50%; 
     }
-    .support { 
+    &.support { 
       background-position: 0 100%; 
     }
   }

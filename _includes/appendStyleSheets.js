@@ -44,7 +44,7 @@
       }, href)
     },
     _load: function(key, href) {
-      setTimeout(function(key, href) {
+      setTimeout(function() {
         console.log("Loading: " + key);
         if (BSStyleSheets._localStorageSupported()) {
           if (localStorage[key] && ("" != localStorage[key])) {

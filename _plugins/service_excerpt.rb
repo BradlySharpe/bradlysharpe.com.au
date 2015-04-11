@@ -19,7 +19,7 @@ module Jekyll
     end
 
     def render(context)
-      @excerpt.split(@sep)
+      @excerpt.slice(0, @excerpt.index(@sep))
     end
   end
 end

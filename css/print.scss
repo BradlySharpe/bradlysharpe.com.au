@@ -18,7 +18,8 @@ body {
 }
 
 .header,
-.footer {
+.footer,
+.profileImage {
 	display: none;
 }
 
@@ -94,25 +95,9 @@ margin-left: 0;
   }
 }
 
-.profileImage {
-
-  img {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    margin: 0 auto;
-    @include border-radius();
-  }
-
-  &.two.columns {
-		margin-right: 4%;
-		width: grid-column-width(2);
-  }
-}
-
 .profileBio {
   &.nine.columns {
-    margin-left: 4%;
-    width: grid-column-width(9);
+    margin: 0;
+    width: grid-column-width(12);
   }
 }

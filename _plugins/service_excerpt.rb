@@ -19,6 +19,7 @@ module Jekyll
     end
 
     def render(context)
+    	"Spliting with #{@sep} in #{@excerpt}"
       @excerpt.slice(0, @excerpt.index(@sep))
     end
   end

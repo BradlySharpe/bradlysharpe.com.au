@@ -1,0 +1,25 @@
+.header,
+.footer {
+	display: none;
+}
+
+.hero {
+	background-image: none !important;
+
+	.opacity {
+		padding: 0;
+
+		.action {
+			display: none;
+		}
+	}
+}
+
+.content {
+	width: 100%;
+}
+
+.contentContainer,
+.content {
+	padding: 0;
+}

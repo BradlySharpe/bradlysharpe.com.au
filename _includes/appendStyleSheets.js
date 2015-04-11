@@ -46,21 +46,21 @@
     _load: function(key, href) {
       setTimeout(function(key, href) {
         console.log("Loading: " + key);
-        if (this._localStorageSupported()) {
+        if (BSStyleSheets._localStorageSupported()) {
           if (localStorage[key] && ("" != localStorage[key])) {
             if (localStorage[key+"_stored"] && ("" != localStorage[key])) {
               try {
                 var stored = new Date(localStorage[key+"_stored"]);
-                if ((this._getToday() - stored) < 1) {
+                if ((BSStyleSheets._getToday() - stored) < 1) {
                   console.log("Cache Hit: " + key);
-                  this._injectStyle(localStorage.getItem(key));
+                  BSStyleSheets._injectStyle(localStorage.getItem(key));
                   return !0;
                 }
                 console.log("Cache expired: " + key, stored);
               } catch (e) { console.log("Error checking cache", e)}
             }
           }
-          this._fetchAndSet(key, href);
+          BSStyleSheets._fetchAndSet(key, href);
         } else {
           var raf = requestAnimationFrame || mozRequestAnimationFrame || webkitRequestAnimationFrame || msRequestAnimationFrame,
             callback = function() {

@@ -72,11 +72,22 @@
     width: grid-column-width(4);
   }
 
-  img {
+  .sprite {
     width: 100%;
     max-width: 40%;
     display: block;
     margin: 2.5rem auto 0;
+    background-size: 100%; 
+
+    .document { 
+      background-position: 0 0%; 
+    }
+    .responsive { 
+      background-position: 0 50%; 
+    }
+    .support { 
+      background-position: 0 100%; 
+    }
   }
 
   h3 {

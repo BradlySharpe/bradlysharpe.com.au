@@ -5,9 +5,9 @@ permalink: /blog/
 ---
 {% assign page_content = content | strip_newlines | strip_html %}
 {% if page_content != "" %}
-	<div class="categoryContent">
+<div class="categoryContent">
 		{{ content }}
-	</div>
+</div>
 {% endif %}
 
 {% assign hasFeatured = false %}
@@ -18,7 +18,7 @@ permalink: /blog/
 {% endfor %}
 
 {% if hasFeatured %}
-	<div class="featuredItems">
+<div class="featuredItems">
 	{% for post in site.posts %}
 	  {% if post.featured and post.featured == true %}
 	  <div class="featuredItem">
@@ -28,7 +28,7 @@ permalink: /blog/
 	  </div>
 	  {% endif %}
 	{% endfor %}
-	</div>
+</div>
 {% endif %}
 
 {% assign post_count = 0 %}
@@ -42,8 +42,8 @@ permalink: /blog/
   </div>
 {% endfor %}
 {% if post_count == 0 %}
-	<div class="noPosts">
-		<p>Blog posts coming soon!</p>
-	</div>
+<div class="noPosts">
+	<p>Blog posts coming soon!</p>
+</div>
 {% endif %}
 </div>

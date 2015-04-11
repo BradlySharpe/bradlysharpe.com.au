@@ -5,9 +5,9 @@ permalink: /services/
 ---
 {% assign page_content = content | strip_newlines | strip_html %}
 {% if page_content != "" %}
-	<div class="servicesContent">
-		{{ content }}
-	</div>
+<div class="servicesContent">
+	{{ content }}
+</div>
 {% endif %}
 
 {% assign hasFeatured = false %}
@@ -18,16 +18,16 @@ permalink: /services/
 {% endfor %}
 
 {% if hasFeatured %}
-	<div class="featuredItems">
-	{% for service in site.services %}
-	  {% if service.featured and service.featured == true %}
-	  <div class="featuredItem">
-	    <h4 class="serviceTitle"><a href="{{ BASE_PATH }}{{ service.url }}">{{ service.title }}</a></h4>
-	    <p class="serviceExcerpt">{{ service.excerpt | strip_html }}</p>
-	  </div>
-	  {% endif %}
-	{% endfor %}
-	</div>
+<div class="featuredItems">
+{% for service in site.services %}
+  {% if service.featured and service.featured == true %}
+  <div class="featuredItem">
+    <h4 class="serviceTitle"><a href="{{ BASE_PATH }}{{ service.url }}">{{ service.title }}</a></h4>
+    <p class="serviceExcerpt">{{ service.excerpt | strip_html }}</p>
+  </div>
+  {% endif %}
+{% endfor %}
+</div>
 {% endif %}
 
 {% assign serviceCount = 0 %}
@@ -40,8 +40,8 @@ permalink: /services/
   </div>
 {% endfor %}
 {% if serviceCount == 0 %}
-	<div class="noServices">
-		<p>Services coming soon!</p>
-	</div>
+<div class="noServices">
+	<p>Services coming soon!</p>
+</div>
 {% endif %}
 </div>

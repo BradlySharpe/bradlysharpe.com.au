@@ -1,5 +1,5 @@
 module Jekyll
-  module CustomTagFilter
+  module CapitalizeCategory
     def capitalize_category(category)
       case category
         when "seo", "dns"
@@ -11,4 +11,4 @@ module Jekyll
   end
 end
 
-Liquid::Template.register_filter(Jekyll::CustomTagFilter)
+Liquid::Template.register_filter(Jekyll::CapitalizeCategory)

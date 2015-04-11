@@ -23,7 +23,7 @@ permalink: /services/
   {% if service.featured and service.featured == true %}
   <div class="featuredItem">
     <h4 class="serviceTitle"><a href="{{ BASE_PATH }}{{ service.url }}">{{ service.title }}</a></h4>
-    <p class="serviceExcerpt">{{ service.content | strip_html | service_excerpt sep:site.excerpt_separator }}</p>
+    <p class="serviceExcerpt">{{ service.content | service_excerpt sep:site.excerpt_separator | strip_html }}</p>
   </div>
   {% endif %}
 {% endfor %}
@@ -37,7 +37,7 @@ permalink: /services/
   {% assign serviceCount=serviceCount | plus:1 %} 
   <div class="categoryItem">
     <h4 class="serviceTitle"><a href="{{ BASE_PATH }}{{ service.url }}">{{ service.title }}</a></h4>
-    <p class="serviceExcerpt">{{ service.content | strip_html | service_excerpt sep:site.excerpt_separator }}</p>
+    <p class="serviceExcerpt">{{ service.content | service_excerpt sep:site.excerpt_separator | strip_html }}</p>
   </div>
   {% endif %}
 {% endfor %}

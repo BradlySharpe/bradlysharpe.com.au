@@ -6,6 +6,11 @@ description: > #
 keywords: "Small, Business, IT, Consulting, Web, Development, Design, Warrnambool, Bradly, Sharpe"
 baseurl: ""
 url: "http://dev.bradlysharpe.com.au"
+permalink: /blog/:categories/:title.html
+collections:
+  services:
+    output: true
+    permalink: /:collection/:path/
 # images_url: "/images/"
 images_url: "//images.cdn.bradlysharpe.com.au/"
 assets_url: ""
@@ -22,7 +27,6 @@ googlePlusName: "101355367498930421383"
 markdown: kramdown
 sass:
   style: compressed
-permalink: none
 timezone: "Australia/Melbourne"
 sitemap:
     exclude:

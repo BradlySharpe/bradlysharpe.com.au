@@ -313,9 +313,9 @@ $menu-width: 32rem;
     }
 
     .columns {
-      width: 52%;
+      width: 52% !important;
       &:first-child {
-        width: 48%;
+        width: 48% !important;
       }
     }
   }

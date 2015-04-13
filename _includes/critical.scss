@@ -313,9 +313,11 @@ $menu-width: 32rem;
     }
 
     .columns {
-      width: 52%;
+      width: 48%;
+      margin-left: 4%;
       &:first-child {
         width: 48%;
+        margin-left: 0;
       }
     }
   }

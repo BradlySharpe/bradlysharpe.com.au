@@ -331,7 +331,7 @@ $footer-height: 40px;
     a {
       background-color: transparent;
       background-repeat: no-repeat;
-      background-image: url(//images.cdn.bradlysharpe.com.au/social-compressed.png);
+      background-image: url(//images.cdn.bradlysharpe.com.au/social.png);
       background-size: auto 120px;
       border: 0;
       color: #fff;
@@ -354,19 +354,31 @@ $footer-height: 40px;
 
   .facebook {
     a {
-      background-position: 0 (-$footer-height);
+      background-position: 0 0;
     }
   }
 
   .googleplus {
     a {
-      background-position: ($footer-height * -3) (-$footer-height);
+      background-position: ($footer-height * -1) 0;
     }
   }
 
   .twitter {
     a {
-      background-position: ($footer-height * -8) (-$footer-height);
+      background-position: ($footer-height * -5) 0;
+    }
+  }
+
+  .github {
+    a {
+      background-position: ($footer-height * -6) 0;
+    }
+  }
+
+  .rss {
+    a {
+      background-position: ($footer-height * -3) 0;
     }
   }
 }

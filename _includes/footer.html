@@ -2,6 +2,8 @@
 	<div class="six columns copyright">&copy; {{ site.title }} {{ site.time | date: "%Y" }}</div>
 	<div class="six columns">
 		<ul class="social u-pull-right">
+			<li class="rss"><a href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" target="_blank" title="Facebook"></a></li>
+			<li class="github"><a href="https://github.com/{{ site.githubName }}" rel="publisher" target="_blank" title="Google+"></a></li>
 			<li class="facebook"><a href="https://www.facebook.com/{{ site.facebookName }}" target="_blank" title="Facebook"></a></li>
 			<li class="googleplus"><a href="https://plus.google.com/{{ site.googlePlusName }}" rel="publisher" target="_blank" title="Google+"></a></li>
 			<li class="twitter"><a href="https://www.twitter.com/{{ site.twitterName }}" target="_blank" title="Twitter"></a></li>

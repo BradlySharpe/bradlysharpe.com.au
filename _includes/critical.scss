@@ -377,25 +377,25 @@ $footer-height: 40px;
 
   .googleplus {
     a {
-      background-position: ($footer-height * -1) 0;
+      background-position: ($footer-height * -2) 0;
     }
   }
 
   .twitter {
     a {
-      background-position: ($footer-height * -5) 0;
+      background-position: ($footer-height * -6) 0;
     }
   }
 
   .github {
     a {
-      background-position: ($footer-height * -6) 0;
+      background-position: ($footer-height * -1) 0;
     }
   }
 
   .rss {
     a {
-      background-position: ($footer-height * -3) 0;
+      background-position: ($footer-height * -4) 0;
     }
   }
 }

@@ -15,11 +15,7 @@ var searchIndex = lunr(function () {
 var entries = [
 {% assign firstPost = 1 %}
 {% for post in site.posts %}
-  {% if firstPost == 1 %}
-    { id: '{{ post.id }}', title: '{{ post.title }}', categories: '{{ post.categories }}', date: '{{ post.date }}', body: '{{ post.content | strip_html }}', excerpt: '{{ post.excerpt | strip_html }}'}
-  {% else %}
-    , { id: '{{ post.id }}', title: '{{ post.title }}', categories: '{{ post.categories }}', date: '{{ post.date }}', body: '{{ post.content | strip_html }}', excerpt: '{{ post.excerpt | strip_html }}'}
-  {% endif %}
+  {% if firstPost == 1 %}, {% endif %}{ id: '{{ post.id }}', title: '{{ post.title }}', categories: '{{ post.categories | first | capitalize_category }}', date: '{{ post.date }}', body: '{{ post.content | strip_html }}', excerpt: '{{ post.excerpt | strip_html }}'}
   {% assign firstPost = 0 %}
 {% endfor %}
 ];

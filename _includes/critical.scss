@@ -294,7 +294,10 @@ $menu-width: 32rem;
   left: 0;
   width: 100%;
   height: $footer-height;
-  padding: 0 0 0 5px;
+
+  .container {
+    padding: 0 0 0 5px;
+  }
 
   .columns {
     width: 65%;
@@ -305,7 +308,9 @@ $menu-width: 32rem;
   }
 
   @include mq($bp-larger-than-phablet) {
-    padding: 0 20px;
+    .container {
+      padding: 0 20px;
+    }
 
     .columns {
       width: 48%;

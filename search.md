@@ -16,9 +16,9 @@ var entries = [
 {% assign firstPost = 1 %}
 {% for post in site.posts %}
   {% if firstPost == 1 %}
-    "{ id: '{{ post.id }}', title: '{{ post.title }}', categories: '{{ post.categories }}', date: '{{ post.date }}', body: '{{ post.content | strip_html }}', excerpt: '{{ post.excerpt | strip_html }}'}"  
+    { id: '{{ post.id }}', title: '{{ post.title }}', categories: '{{ post.categories }}', date: '{{ post.date }}', body: '{{ post.content | strip_html }}', excerpt: '{{ post.excerpt | strip_html }}'}
   {% else %}
-    ", { id: '{{ post.id }}', title: '{{ post.title }}', categories: '{{ post.categories }}', date: '{{ post.date }}', body: '{{ post.content | strip_html }}', excerpt: '{{ post.excerpt | strip_html }}'}" 
+    , { id: '{{ post.id }}', title: '{{ post.title }}', categories: '{{ post.categories }}', date: '{{ post.date }}', body: '{{ post.content | strip_html }}', excerpt: '{{ post.excerpt | strip_html }}'}
     {% assign firstPost = 0 %}
   {% endif %}
 {% endfor %}
@@ -27,5 +27,47 @@ var entries = [
 entries.forEach(function (entry) {
     searchIndex.add(entry);
 });
+
+/*
+http://29a.ch/2014/12/03/full-text-search-example-lunrjs
+jQuery(function($) {
+    var index,
+        store,
+        data = $.getJSON(searchIndexUrl);
+
+    data.then(function(data){
+        store = data.store,
+        // create index
+        index = lunr.Index.load(data.index)
+    });
+
+    $('.search-field').keyup(function() {
+        var query = $(this).val();
+        if(query === ''){
+            jQuery('.search-results').empty();
+        }
+        else {
+            // perform search
+            var results = index.search(query);
+            data.then(function(data) {
+                $('.search-results').empty().append(
+                    results.length ?
+                    results.map(function(result){
+                        var el = $('<p>')
+                            .append($('<a>')
+                                .attr('href', result.ref)
+                                .text(store[result.ref].title)
+                            );
+                        if(store[result.ref].abstract){
+                            el.after($('<p>').text(store[result.ref].abstract));
+                        }
+                        return el;
+                    }) : $('<p><strong>No results found</strong></p>')
+                );
+            }); 
+        }
+    }); 
+});
+ */
 
 </script>

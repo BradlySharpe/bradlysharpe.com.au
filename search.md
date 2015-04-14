@@ -9,20 +9,19 @@ permalink: /search/
 {% include lunr.min.js %}
 
 var searchIndex = lunr(function () {
-    this.field('title', {boost: 20}), this.field('categories', {boost: 10}), this.field('body'), this.field('date'), this.ref('id');
+  this.field('title', {boost: 20}), this.field('categories', {boost: 10}), this.field('body'), this.field('date'), this.ref('id');
 });
 
-var entries = [
-{% assign firstPost = 1 %}
-{% for post in site.posts %}
-  {% if firstPost == 0 %}, {% endif %}{ id: '{{ post.id }}', title: '{{ post.title }}', categories: '{{ post.categories | first | capitalize_category }}', date: '{{ post.date }}', body: '{{ post.content | strip_html }}', excerpt: '{{ post.excerpt | strip_html }}'}
-  {% assign firstPost = 0 %}
-{% endfor %}
-];
+var xhr = new XMLHttpRequest;
+xhr.open("GET", "/searchEntries.json", !0), xhr.onreadystatechange = function() {
+    4 === xhr.readyState && (console.log(xhr.responseText))
+}, xhr.send()
 
+/*
 entries.forEach(function (entry) {
     searchIndex.add(entry);
 });
+*/
 
 /*
 http://29a.ch/2014/12/03/full-text-search-example-lunrjs

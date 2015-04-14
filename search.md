@@ -8,32 +8,28 @@ permalink: /search/
 <script type="text/javascript">
 {% include lunr.min.js %}
 
-var search = {
-  loaded : 0,
-  index : lunr(function () { 
-    this.field('title', {boost: 20}), this.field('categories', {boost: 10}), this.field('body'), this.field('date'), this.ref('id'); 
-  }),
-  load : function() {
-    var xhr = new XMLHttpRequest;
-    xhr.open("GET", "/searchEntries.json", !0);
-    xhr.onreadystatechange = function() { (4 === xhr.readyState && 200 == xhr.status && (search.populate(xhr.responseText))) }
-    xhr.send();
+var search={
+  loaded:0,
+  index:lunr(function(){this.field("title",{boost:20}),this.field("categories",{boost:10}),this.field("body"),this.field("date"),this.ref("id")}),
+  load:function(){
+    var xhr=new XMLHttpRequest;
+    xhr.open("GET","/searchEntries.json",!0),xhr.onreadystatechange=function(){4===xhr.readyState&&200==xhr.status&&search.populate(xhr.responseText)},xhr.send()
   },
-  populate : function(entries) {
-    var data = [];
-    try {
-      data = JSON.parse(entries);
-    } catch (e) { return search.noJSON(); }
-    data.entries.forEach(function(e) { search.index.add(e); });
-    search.loaded = !0;
+  populate:function(text){
+    var data=[];
+    try{data=JSON.parse(text)}catch(n){return search.noJSON()}
+    data.entries.forEach(function(e){search.index.add(e)}),search.loaded=!0,search.toggle()
   },
-  noJSON : function() {
-    console.error("No JSON support");
+  noJSON:function(){
+    console.error("No JSON support")
   },
-  run : function() {
-    return (this.loaded) ? this.index.search('dns') : 0;
+  toggle:function() {
+    /* enable search button */
+  },
+  run:function(){
+    return this.loaded?this.index.search("dns"):0
   }
-}
+};
 search.load();
 
 

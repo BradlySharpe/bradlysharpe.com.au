@@ -14,7 +14,7 @@ var searchIndex = lunr(function () {
 
 var xhr = new XMLHttpRequest;
 xhr.open("GET", "/searchEntries.json", !0), xhr.onreadystatechange = function() {
-    4 === xhr.readyState && 200 == xmlhttp.status && ("undefined" !== typeof JSON, console.log(JSON.parse(xhr.responseText)))
+    4 === xhr.readyState && 200 == xhr.status && ("undefined" !== typeof JSON, console.log(JSON.parse(xhr.responseText)))
 }, xhr.send()
 
 /*

@@ -2,17 +2,18 @@
 layout: default
 title: Search
 permalink: /search/
+atf: atf_search.scss
 ---
-<form method="GET" name="search">
-  <div class="row">
-    <div class="three columns offset-by-three">
+<div class="row">
+  <div class="four columns offset-by-three">
+    <form class="inset u-cf" method="GET" name="search">
       <input type="text" name="q" id="query" value="" />
-    </div>
-    <div class="one column">
-      <input type="submit" value="Search" />
-    </div>
+      <input class="button button-primary" type="submit" value="Search" />
+    </form>
   </div>
-</form>
+  <div class="one column">
+  </div>
+</div>
 <div class="row">
   <div class="twelve columns">
     <h5>Loading Search Index</h5>

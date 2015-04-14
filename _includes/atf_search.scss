@@ -1,0 +1,14 @@
+.inset {
+	input {
+		float: left;
+	}
+
+	button {
+		overflow: visible;
+		position: relative;
+		float: right;
+		border: 0;
+		padding: 0;
+		cursor: pointer;
+	}
+}

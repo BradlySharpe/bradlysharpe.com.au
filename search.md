@@ -12,10 +12,9 @@ var searchIndex = lunr(function () {
   this.field('title', {boost: 20}), this.field('categories', {boost: 10}), this.field('body'), this.field('date'), this.ref('id');
 });
 
-var xhr = new XMLHttpRequest,
-  data;
+var xhr = new XMLHttpRequest;
 xhr.open("GET", "/searchEntries.json", !0), xhr.onreadystatechange = function() {
-    4 === xhr.readyState && 200 == xhr.status && ("undefined" !== typeof JSON, data = JSON.parse(xhr.responseText), data.entries.forEach(function(e) { searchIndex.add(e), console.log("Search Index loaded"); }))
+    4 === xhr.readyState && 200 == xhr.status && ("undefined" !== typeof JSON, JSON.parse(xhr.responseText).entries.forEach(function(e) { searchIndex.add(e), console.log("Search Index loaded"); }))
 }, xhr.send();
 
 /*

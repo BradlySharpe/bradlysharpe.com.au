@@ -1,7 +1,7 @@
 ---
 layout: compress
 ---
-{
+"{
 	\"entries\" : [
 	{% assign firstPost = 1 %}
 	{% for post in site.posts %}
@@ -9,4 +9,4 @@ layout: compress
 	  {% assign firstPost = 0 %}
 	{% endfor %}
 	]
-}
+}"

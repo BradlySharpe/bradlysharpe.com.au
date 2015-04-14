@@ -15,7 +15,7 @@ var searchIndex = lunr(function () {
 var xhr = new XMLHttpRequest,
   data;
 xhr.open("GET", "/searchEntries.json", !0), xhr.onreadystatechange = function() {
-    4 === xhr.readyState && 200 == xhr.status && ("undefined" !== typeof JSON, data = JSON.parse(xhr.responseText), data.entries.forEach(function(e) { searchIndex.add(e), console.log("Search Index loaded"); })))
+    4 === xhr.readyState && 200 == xhr.status && ("undefined" !== typeof JSON, data = JSON.parse(xhr.responseText), data.entries.forEach(function(e) { searchIndex.add(e), console.log("Search Index loaded"); }))
 }, xhr.send();
 
 /*

@@ -2,10 +2,10 @@
 layout: compress
 ---
 {
-	entries = [
+	\"entries\" : [
 	{% assign firstPost = 1 %}
 	{% for post in site.posts %}
-	  {% if firstPost == 0 %}, {% endif %}{ id: '{{ post.id }}', title: '{{ post.title }}', categories: '{{ post.categories | first | capitalize_category }}', date: '{{ post.date }}', body: '{{ post.content | strip_html }}', excerpt: '{{ post.excerpt | strip_html }}'}
+	  {% if firstPost == 0 %}, {% endif %}{ \"id\": \"{{ post.id | escape }}\", \"title\": \"{{ post.title | escape }}\", \"categories\": \"{{ post.categories | first | capitalize_category | escape }}\", \"date\": \"{{ post.date | escape }}\", \"body\": \"{{ post.content | strip_html | escape }}\", \"excerpt\": \"{{ post.excerpt | strip_html | escape }}\"}
 	  {% assign firstPost = 0 %}
 	{% endfor %}
 	]

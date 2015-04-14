@@ -8,10 +8,8 @@ atf: atf_search.scss
   <div class="four columns offset-by-three">
     <form class="inset u-cf" method="GET" name="search">
       <input type="text" name="q" id="query" value="" />
-      <input class="button button-primary" type="submit" value="Search" />
+      <button class="button button-primary">Search</button>
     </form>
-  </div>
-  <div class="one column">
   </div>
 </div>
 <div class="row">

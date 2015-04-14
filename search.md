@@ -3,7 +3,21 @@ layout: default
 title: Search
 permalink: /search/
 ---
-
+<form method="GET" name="search">
+  <div class="row">
+    <div class="three columns offset-by-three">
+      <input type="text" name="q" id="query" value="" />
+    </div>
+    <div class="one column">
+      <input type="submit" value="Search" />
+    </div>
+  </div>
+</form>
+<div class="row">
+  <div class="twelve columns">
+    <h5>Loading Search Index</h5>
+  </div>
+</div>
 
 <script type="text/javascript">
 {% include lunr.min.js %}

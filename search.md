@@ -18,9 +18,8 @@ atf: atf_search.scss
   </div>
 </div>
 
+<script type="text/javascript" src="/js/lunr.min.js"></script>
 <script type="text/javascript">
-{% include lunr.min.js %}
-
 var search={
   loaded:0,
   index:lunr(function(){this.field("title",{boost:20}),this.field("categories",{boost:10}),this.field("body"),this.field("date"),this.ref("id")}),

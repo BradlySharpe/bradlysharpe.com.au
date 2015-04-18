@@ -2,6 +2,7 @@
 layout: default
 title: Blog
 permalink: /blog/
+atf: atf_blog.scss
 ---
 {% assign page_content = content | strip_newlines | strip_html %}
 {% if page_content != "" %}

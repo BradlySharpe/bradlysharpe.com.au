@@ -59,7 +59,7 @@ atf: atf_blog.scss
 {% assign rowOpen = 0 %}
 {% assign postCount = 0 %}
 <h3 class="sectionTitle">Recent Posts:</h3>
-<div class="categoryItems">
+<div class="categoryItems u-border-bottom">
 {% for post in site.posts %}
 	{% if postIndex == 1 %}
 		{% assign rowOpen = 1 %}

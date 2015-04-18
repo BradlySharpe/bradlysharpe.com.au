@@ -26,13 +26,15 @@
 }
 
 .postImage {
-	max-width: 100%;
+	max-width: 80%;
+	margin: 0 10%;
 	@include border-radius;
 }
 
 .postDetails {
 	text-align: center;
 	margin: 0;
+	color: #999;
 }
 
 .postExcerpt {

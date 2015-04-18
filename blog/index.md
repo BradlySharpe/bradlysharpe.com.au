@@ -19,7 +19,7 @@ atf: atf_blog.scss
 {% endfor %}
 
 {% if hasFeatured %}
-<h3>Featured Posts:</h3>
+<h3 class="sectionTitle">Featured Posts:</h3>
 <div class="featuredItems u-border-bottom">
 	{% assign postIndex = 1 %}
 	{% assign rowOpen = 0 %}
@@ -53,7 +53,7 @@ atf: atf_blog.scss
 {% assign postIndex = 1 %}
 {% assign rowOpen = 0 %}
 {% assign postCount = 0 %}
-<h3>Recent Posts:</h3>
+<h3 class="sectionTitle">Recent Posts:</h3>
 <div class="categoryItems">
 {% for post in site.posts %}
 	{% if postIndex == 1 %}

@@ -19,26 +19,32 @@ permalink: /blog/
 
 {% if hasFeatured %}
 <div class="featuredItems container">
-	{% assign counter = 1 %}
+	{% assign postIndex = 1 %}
+	{% assign rowOpen = 0 %}
 	{% for post in site.posts %}
-		{% if counter == 1 %}
-		<div class="row">
+		{% if postIndex == 1 %}
+			{% assign rowOpen = 1 %}
+			<div class="row">
 		{% endif %}
 	  {% if post.featured and post.featured == true %}
-	  <div class="featuredItem four columns">
-	    <h4 class="postTitle"><a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></h4>
-	    <span class="postDetails">Posted in {{ post.categories | first | capitalize_category }} on {{ post.date | date_to_string }}</span>
-	    <p class="postExcerpt">{{ post.excerpt | strip_html }}</p>
-	  </div>
+		  <div class="featuredItem four columns">
+		    <h4 class="postTitle"><a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></h4>
+		    <span class="postDetails">Posted in {{ post.categories | first | capitalize_category }} on {{ post.date | date_to_string }}</span>
+		    <p class="postExcerpt">{{ post.excerpt | strip_html }}</p>
+		  </div>
 	  {% endif %}
-	  {% assign postCount=postCount | plus:1 %} 
-	  {% if counter == 3 %}
-	  	{% assign counter = 1 %}
+	  {% assign postIndex=postIndex | plus:1 %} 
+	  {% if postIndex == 3 %}
+	  	{% assign postIndex = 1 %}
 	  {% endif %}
-	  {% if counter == 1 %}
-		</div>
+	  {% if postIndex == 1 %}
+			{% assign rowOpen = 0 %}
+			</div>
 		{% endif %}
 	{% endfor %}
+	{% if rowOpen == 1 %}
+		</div>
+	{% endif %}
 </div>
 {% endif %}
 

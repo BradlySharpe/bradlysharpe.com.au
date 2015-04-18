@@ -32,7 +32,7 @@ atf: atf_blog.scss
 		  <div class="featuredItem four columns">
 		    <h4 class="postTitle"><a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></h4>
 		    {% if post.featuredImage != nil and post.featuredImage != "" %}
-		    <a href="<a href="{{ BASE_PATH }}{{ post.url }}">">
+		    <a href="{{ BASE_PATH }}{{ post.url }}">
 		    	<img class="postImage" src="{{ post.featuredImage | prepend: site.images_url }}" alt="{{ post.featuredImageText }}" />
 		    </a>
 		   	{% endif %}
@@ -70,7 +70,7 @@ atf: atf_blog.scss
 	  <div class="categoryItem four columns">
 	    <h4 class="postTitle"><a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></h4>
 	    {% if post.featuredImage != nil and post.featuredImage != "" %}
-	    <a href="<a href="{{ BASE_PATH }}{{ post.url }}">">
+	    <a href="{{ BASE_PATH }}{{ post.url }}">
 	    	<img class="postImage" src="{{ post.featuredImage | prepend: site.images_url }}" alt="{{ post.featuredImageText }}" />
 	    </a>
 	   	{% endif %}

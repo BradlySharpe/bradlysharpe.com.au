@@ -49,3 +49,11 @@ def get_pages(url)
 	end
 	a.reverse
 end
+
+##
+# Gets Page object that has given url. Very inefficient O(n) solution.
+def get_page_from_url(url)
+	(site.pages + site.posts).each do |page|
+		return page if page.url == url
+	end
+end

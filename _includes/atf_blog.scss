@@ -45,6 +45,10 @@
 .categoryItems .one-third.column {
   width: 100%;
 
+  @include mq($bp-larger-than-phablet) {
+    width: grid-column-width(6);
+  }
+
   @include mq($bp-larger-than-tablet) {
     width: grid-column-width(4);
   }

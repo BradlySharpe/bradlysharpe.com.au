@@ -96,3 +96,5 @@ atf: atf_blog.scss
 </div>
 {% endif %}
 </div>
+
+{% include help.html %}

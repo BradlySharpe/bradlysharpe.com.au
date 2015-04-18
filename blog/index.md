@@ -29,7 +29,7 @@ atf: atf_blog.scss
 			<div class="row">
 		{% endif %}
 	  {% if post.featured and post.featured == true %}
-		  <div class="featuredItem four columns">
+		  <div class="featuredItem one-third column">
 		    <h4 class="postTitle"><a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></h4>
 		    {% if post.featuredImage != nil and post.featuredImage != "" %}
 		    <a href="{{ BASE_PATH }}{{ post.url }}">
@@ -67,7 +67,7 @@ atf: atf_blog.scss
 	{% endif %}
   {% if post.featured == nil or post.featured == false %}
 	  {% assign postCount=postCount | plus:1 %} 
-	  <div class="categoryItem four columns">
+	  <div class="categoryItem one-third column">
 	    <h4 class="postTitle"><a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></h4>
 	    {% if post.featuredImage != nil and post.featuredImage != "" %}
 	    <a href="{{ BASE_PATH }}{{ post.url }}">

@@ -40,3 +40,12 @@
 .postExcerpt {
 	margin: 0;
 }
+
+.featuredItems .one-third.column,
+.categoryItems .one-third.column {
+  width: 100%;
+
+  @include mq($bp-larger-than-tablet) {
+    width: grid-column-width(4);
+  }
+}

@@ -55,6 +55,6 @@ end
 def get_page_from_url(url)
 	puts "looking for #{url}:"
 	(site.pages + site.posts).each do |page|
-		return page if ((page.url == url) or (page.permalink + "/index.html") == url))
+		return page if ((page.url == url) or ((page.permalink + "/index.html") == url))
 	end
 end

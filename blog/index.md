@@ -70,7 +70,7 @@ atf: atf_blog.scss
 	    {% if post.featuredImage != nil and post.featuredImage != "" %}
 	    <img class="postImage" src="{{ site.images_url }}post.featuredImage" alt="{{ post.featuredImageText }}" />
 	   	{% endif %}
-	    <p class="postDetails">Posted in {{ post.categories | first | capitalize_category }} on {{ post.date | date_to_string }}</p>
+	    <p class="postDetails">Posted in <a href="/blog/{{ post.categories | first }}">{{ post.categories | first | capitalize_category }}</a> on {{ post.date | date_to_string }}</p>
 	    <p class="postExcerpt">{{ post.excerpt | strip_html }}</p>
 	  </div>
   {% endif %}

@@ -53,6 +53,7 @@ end
 ##
 # Gets Page object that has given url. Very inefficient O(n) solution.
 def get_page_from_url(url)
+	puts "looking for #{url} in pages"
 	(site.pages + site.posts).each do |page|
 		return page if page.url == url
 	end

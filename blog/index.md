@@ -20,7 +20,7 @@ atf: atf_blog.scss
 
 {% if hasFeatured %}
 <h3>Featured Posts:</h3>
-<div class="featuredItems container u-border-bottom">
+<div class="featuredItems u-border-bottom">
 	{% assign postIndex = 1 %}
 	{% assign rowOpen = 0 %}
 	{% for post in site.posts %}
@@ -31,7 +31,7 @@ atf: atf_blog.scss
 	  {% if post.featured and post.featured == true %}
 		  <div class="featuredItem four columns">
 		    <h4 class="postTitle"><a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></h4>
-		    <span class="postDetails">Posted in {{ post.categories | first | capitalize_category }} on {{ post.date | date_to_string }}</span>
+		    <p class="postDetails">Posted in {{ post.categories | first | capitalize_category }} on {{ post.date | date_to_string }}</p>
 		    <p class="postExcerpt">{{ post.excerpt | strip_html }}</p>
 		  </div>
 	  {% endif %}
@@ -54,7 +54,7 @@ atf: atf_blog.scss
 {% assign rowOpen = 0 %}
 {% assign postCount = 0 %}
 <h3>Recent Posts:</h3>
-<div class="categoryItems container">
+<div class="categoryItems">
 {% for post in site.posts %}
 	{% if postIndex == 1 %}
 		{% assign rowOpen = 1 %}
@@ -64,7 +64,7 @@ atf: atf_blog.scss
 	  {% assign postCount=postCount | plus:1 %} 
 	  <div class="categoryItem four columns">
 	    <h4 class="postTitle"><a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></h4>
-	    <span class="postDetails">Posted in {{ post.categories | first | capitalize_category }} on {{ post.date | date_to_string }}</span>
+	    <p class="postDetails">Posted in {{ post.categories | first | capitalize_category }} on {{ post.date | date_to_string }}</p>
 	    <p class="postExcerpt">{{ post.excerpt | strip_html }}</p>
 	  </div>
   {% endif %}

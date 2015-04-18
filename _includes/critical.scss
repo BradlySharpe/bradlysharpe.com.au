@@ -286,6 +286,30 @@ $menu-width: 32rem;
   }
 }
 
+.searchHelp {
+  text-align: center;
+}
+
+.inset {
+  margin: 0 auto;
+  
+  input {
+    padding: 6px 90px 6px 10px !important;
+  }
+
+  button {
+    padding: 0 10px;
+    margin-left: -75px;
+    position: absolute;
+    -webkit-border-top-left-radius: 0;
+    -webkit-border-bottom-left-radius: 0;
+    -moz-border-top-left-radius: 0;
+    -moz-border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+
 .footer {
   background: #f2f2f2;
   border-top: 1px solid $border-color;

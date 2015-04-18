@@ -45,6 +45,15 @@
     "@context": "http://schema.org",
     "@type": "WebSite",
     "url": "{{ site.baseurl | prepend: site.url }}",
+    "name": "{{ site.title }}",
+    "author" : {
+      "@type" : "Person",
+      "givenName" : "Bradly",
+      "additionalName" : "Warren",
+      "familyName" : "Sharpe",
+      "birthDate" : "1989-12-02",
+      "@id" : "http://bradlysharpe.com.au"
+    },
     "potentialAction": {
       "@type": "SearchAction",
       "target": "{{ site.baseurl | prepend: site.url }}/search?&q={query}",

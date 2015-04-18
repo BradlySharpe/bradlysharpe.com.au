@@ -5,9 +5,9 @@ permalink: /search/
 atf: atf_search.scss
 ---
 <div class="row">
-  <div class="four columns offset-by-three">
+  <div class="four columns offset-by-four">
     <form class="inset u-cf" method="GET" name="search">
-      <input type="text" name="q" id="query" value="" />
+      <input class="u-full-width" type="text" name="q" id="query" value="" />
       <button class="button button-primary">Search</button>
     </form>
   </div>

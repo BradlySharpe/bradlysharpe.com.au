@@ -53,7 +53,6 @@ end
 ##
 # Gets Page object that has given url. Very inefficient O(n) solution.
 def get_page_from_url(url)
-	puts "looking for #{url}:"
 	(site.pages + site.posts).each do |page|
 		return page if page.url == url || page.permalink == url.gsub(/\/index.html/, '/')
 	end

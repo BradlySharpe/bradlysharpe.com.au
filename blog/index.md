@@ -31,7 +31,10 @@ atf: atf_blog.scss
 	  {% if post.featured and post.featured == true %}
 		  <div class="featuredItem four columns">
 		    <h4 class="postTitle"><a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></h4>
-		    <p class="postDetails">Posted in {{ post.categories | first | capitalize_category }} on {{ post.date | date_to_string }}</p>
+		    {% if post.featuredImage != nil and post.featuredImage != "" %}
+		    <img class="postImage" src="{{ post.featuredImage | prepend: site.images_url }}" alt="{{ post.featuredImageText }}" />
+		   	{% endif %}
+		    <p class="postDetails">Posted in <a href="/blog/{{ post.categories | first }}">{{ post.categories | first | capitalize_category }}</a> on {{ post.date | date_to_string }}</p>
 		    <p class="postExcerpt">{{ post.excerpt | strip_html }}</p>
 		  </div>
 	  {% endif %}
@@ -64,6 +67,9 @@ atf: atf_blog.scss
 	  {% assign postCount=postCount | plus:1 %} 
 	  <div class="categoryItem four columns">
 	    <h4 class="postTitle"><a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></h4>
+	    {% if post.featuredImage != nil and post.featuredImage != "" %}
+	    <img class="postImage" src="{{ site.images_url }}post.featuredImage" alt="{{ post.featuredImageText }}" />
+	   	{% endif %}
 	    <p class="postDetails">Posted in {{ post.categories | first | capitalize_category }} on {{ post.date | date_to_string }}</p>
 	    <p class="postExcerpt">{{ post.excerpt | strip_html }}</p>
 	  </div>

@@ -1,6 +1,16 @@
 <ol class="breadcrumbs">
+{% assign first = 1 %}
 {% for p in page.ancestors %}
-	<li><a href="{{ p.url | replace:'index.html','' }}">{{ p.title }}</a></li>
+	<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb" {% if first == 0 %}itemprop="child"{% endif %}>
+		<a href="{{ p.url | replace:'index.html','' }}" itemprop="url">
+			<span itemprop="title">{{ p.title }}</span>
+		</a>
+	</li>
+	{% assign first = 0 %}
 {% endfor %}
-	<li class="active">{{ page.title }}</li>
+	<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb" itemprop="child" class="active">
+		<a href="{{ p.url | replace:'index.html','' }}" itemprop="url">
+			<span itemprop="title">{{ page.title }}</span>
+		</a>
+	</li>
 </ol>

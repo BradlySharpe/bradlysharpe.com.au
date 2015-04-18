@@ -9,10 +9,6 @@
 	font-size: 2.4rem; 
 	line-height: 1.35; 
 	letter-spacing: -.08rem;
-
-	@include mq($bp-larger-than-phablet) {
-		font-size: 3.0rem;
-	}
 }
 
 .featureItem,

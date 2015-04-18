@@ -16,6 +16,24 @@
 	margin-bottom: 2rem;
 }
 
+%fullHeightBorder {
+	content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+  left: 0;
+  border: 1px solid $border-color;
+  @include border-radius;
+}
+
+.featureItem:before {
+	@extend %fullHeightBorder;
+}
+.categoryItem:before {
+	@extend %fullHeightBorder;
+}
+
 .postTitle {
 	text-align: center;
 	margin: 0;

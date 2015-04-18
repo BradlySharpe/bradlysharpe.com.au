@@ -1,14 +1,16 @@
 .inset {
 	input {
-		float: left;
+		padding: 6px 60px 6px 10px;
 	}
 
 	button {
-		overflow: visible;
-		position: relative;
-		float: right;
-		border: 0;
-		padding: 0;
-		cursor: pointer;
+		padding: 0 10px;
+		margin-left: -54px;
+		-webkit-border-top-left-radius: 0;
+		-webkit-border-bottom-left-radius: 0;
+		-moz-border-top-left-radius: 0;
+		-moz-border-bottom-left-radius: 0;
+		border-top-left-radius: 0;
+		border-bottom-left-radius: 0;
 	}
 }

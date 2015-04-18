@@ -2,10 +2,9 @@
 layout: default
 title: Search
 permalink: /search/
-atf: atf_search.scss
 ---
 <div class="row">
-  <div class="four columns offset-by-four">
+  <div class="twelve columns">
     <form class="inset u-cf" method="GET" name="search">
       <input class="u-full-width" type="text" name="q" id="query" value="" />
       <button class="button button-primary">Search</button>

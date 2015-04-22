@@ -67,8 +67,8 @@ $vendors-transition: "-webkit-", "-moz-", "-ms-", "-o-", "";
 
 $vendors-transform: "-webkit-", "-ms-", "";
 @mixin transform($args...) {
-  @each $vendor in $vendors-transition {
-    #{$vendor}transition: $args;
+  @each $vendor in $vendors-transform {
+    #{$vendor}transform: $args;
   }
 }
 

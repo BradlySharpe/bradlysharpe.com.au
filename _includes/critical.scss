@@ -325,6 +325,10 @@ $menu-width: 32rem;
         box-shadow: 2px -2px 0 2px #fff;
         border-radius: 0 5px 0 50px;
       }
+
+      &:hover:after {
+        box-shadow: 2px -2px 0 2px #eee;
+      }
     }
 
     &:first-child a {
@@ -345,6 +349,7 @@ $menu-width: 32rem;
 
       &:hover {
         background: transparent;
+        border-color: #ddd;
       }
     }
 

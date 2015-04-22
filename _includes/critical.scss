@@ -349,12 +349,19 @@ $menu-width: 32rem;
 
       &:hover {
         background: transparent;
-        border-color: #ddd;
       }
     }
 
-    &:last-child a:after {
-      content: none;
+    &:last-child {
+      display: none;
+      
+      @include mq($bp-larger-than-tablet) {
+        display: inline;
+      }
+
+      a:after {
+        content: none;
+      }
     }
 
     a,

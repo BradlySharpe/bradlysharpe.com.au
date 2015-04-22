@@ -289,60 +289,68 @@ $menu-width: 32rem;
 .breadcrumbs {  
   list-style: none;
   overflow: hidden; 
+  @include border-radius;
 
   li { 
     float: left; 
 
     a {
-      color: #333;
-      text-decoration: none; 
-      padding: 10px 10px 10px 20px;
-      background: #CCC;
-      position: relative; 
+      text-decoration: none;
+      outline: none;
       display: block;
       float: left;
+      line-height: 36px;
+      color: #333;
+      padding: 0 10px 0 30px;
+      background: #CCC;
+      position: relative;
 
-      &:after { 
-        content: " "; 
-        display: block; 
-        width: 0; 
-        height: 0;
-        border-top: 22px solid transparent;           /* Go big on the size, and let overflow hide */
-        border-bottom: 22px solid transparent;
-        border-left: 12px solid #CCC;
-        position: absolute;
-        top: 50%;
-        margin-top: -22px; 
-        left: 100%;
-        z-index: 2; 
+      &:first-child {
+        padding-left: 20px;
+        border-radius: 4px 0 0 4px;
       }
 
-      &:before { 
-        content: " "; 
-        display: block; 
-        width: 0; 
-        height: 0;
-        border-top: 22px solid transparent;       
-        border-bottom: 22px solid transparent;
-        border-left: 12px solid white;
+      &:first-child:before {
+        left: 14px;
+      }
+
+      &:last-child {
+        border-radius: 0 4px 4px 0;
+        padding-right: 20px;
+      }
+
+      &.active,
+      &:hover {
+        background: #333;
+        color: #FFF;
+      }
+
+      &.active:after, 
+      &:hover:after {
+        background: #333;
+      }
+
+      &:after {
+        content: '';
         position: absolute;
-        top: 50%;
-        margin-top: -22px; 
-        margin-left: 1px;
-        left: 100%;
-        z-index: 1; 
+        top: 0; 
+        right: -18px;
+        width: 36px; 
+        height: 36px;
+        transform: scale(0.707) rotate(45deg);
+        z-index: 1;
+        background: #CCC;
+        box-shadow: 2px -2px 0 2px rgba(255, 255, 255, 1);
+        border-radius: 0 5px 0 50px;
+      }
+
+      &:last-child:after {
+        content: none;
       }
     }
 
-    &:first-child a {
-      padding-left: 10px;
-    }
-
-    a:hover { background: #333; color: #000; }
-    a:hover:after { border-left-color: #333 !important; }
-
-    a:hover,
-    a:hover:after {
+    a,
+    a:after {
       @include transition(all 500ms);
     }
   }

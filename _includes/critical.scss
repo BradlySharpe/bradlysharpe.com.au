@@ -294,11 +294,10 @@ $menu-width: 32rem;
     float: left; 
 
     a {
-      color: white;
+      color: #333;
       text-decoration: none; 
-      padding: 10px 0 10px 65px;
-      background: brown;                   /* fallback color */
-      background: hsla(34,85%,35%,1); 
+      padding: 10px 10px 10px 20px;
+      background: #CCC;
       position: relative; 
       display: block;
       float: left;
@@ -310,7 +309,7 @@ $menu-width: 32rem;
         height: 0;
         border-top: 22px solid transparent;           /* Go big on the size, and let overflow hide */
         border-bottom: 22px solid transparent;
-        border-left: 10px solid hsla(34,85%,35%,1);
+        border-left: 12px solid #CCC;
         position: absolute;
         top: 50%;
         margin-top: -22px; 
@@ -325,7 +324,7 @@ $menu-width: 32rem;
         height: 0;
         border-top: 22px solid transparent;       
         border-bottom: 22px solid transparent;
-        border-left: 10px solid white;
+        border-left: 12px solid white;
         position: absolute;
         top: 50%;
         margin-top: -22px; 
@@ -339,25 +338,13 @@ $menu-width: 32rem;
       padding-left: 10px;
     }
 
-    &:nth-child(2) a       { background:        hsla(34,85%,45%,1); }
-    &:nth-child(2) a:after { border-left-color: hsla(34,85%,45%,1); }
-    &:nth-child(3) a       { background:        hsla(34,85%,55%,1); }
-    &:nth-child(3) a:after { border-left-color: hsla(34,85%,55%,1); }
-    &:nth-child(4) a       { background:        hsla(34,85%,65%,1); }
-    &:nth-child(4) a:after { border-left-color: hsla(34,85%,65%,1); }
-    &:nth-child(5) a       { background:        hsla(34,85%,75%,1); }
-    &:nth-child(5) a:after { border-left-color: hsla(34,85%,75%,1); }
-    /*
-    &:last-child a {
-      background: transparent !important;
-      color: black;
-      pointer-events: none;
-      cursor: default;
-    }
-    */
+    a:hover { background: #333; color: #000; }
+    a:hover:after { border-left-color: #333 !important; }
 
-    a:hover { background: hsla(34,85%,25%,1); }
-    a:hover:after { border-left-color: hsla(34,85%,25%,1) !important; }
+    a:hover,
+    a:hover:after {
+      @include transition(all 500ms);
+    }
   }
 }
 

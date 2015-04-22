@@ -319,7 +319,7 @@ $menu-width: 32rem;
         right: -18px;
         width: 36px; 
         height: 36px;
-        transform: scale(0.707) rotate(45deg);
+        @include transform(scale(0.707) rotate(45deg));
         z-index: 1;
         background: #f2f2f2;
         box-shadow: 2px -2px 0 2px #fff;

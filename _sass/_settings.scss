@@ -65,6 +65,13 @@ $vendors-transition: "-webkit-", "-moz-", "-ms-", "-o-", "";
   }
 }
 
+$vendors-transform: "-webkit-", "-ms-", "";
+@mixin transform($args...) {
+  @each $vendor in $vendors-transition {
+    #{$vendor}transition: $args;
+  }
+}
+
 
 @mixin _buttonBase($color, $background, $border) {
   color: $color;

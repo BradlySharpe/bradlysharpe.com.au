@@ -303,15 +303,14 @@ $menu-width: 32rem;
       padding: 0 10px 0 30px;
       background: #eee;
       position: relative;
+      color: #333;
 
       &.active,
-      &:hover {
-        background: #ccc;
-      }
-
+      &:hover,
       &.active:after, 
       &:hover:after {
-        background: #ccc;
+        background: #333;
+        color: #fff;
       }
 
       &:after {
@@ -341,11 +340,14 @@ $menu-width: 32rem;
     &:last-child a {
       border-radius: 0 4px 4px 0;
       padding-right: 20px;
-      background: transparent;
+      background: #333;
+      color: #fff;
+      /*line-height: 35px;
+      border: 1px solid #eee;
 
       &:hover {
         background: transparent;
-      }
+      }*/
     }
 
     &:last-child a:after {

@@ -354,8 +354,8 @@ $menu-width: 32rem;
 
     &:last-child {
       display: none;
-      
-      @include mq($bp-larger-than-tablet) {
+
+      @include mq($bp-larger-than-phablet) {
         display: inline;
       }
 

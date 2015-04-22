@@ -300,20 +300,18 @@ $menu-width: 32rem;
       display: block;
       float: left;
       line-height: 36px;
-      color: #333;
       padding: 0 10px 0 30px;
-      background: #CCC;
+      background: #eee;
       position: relative;
 
       &.active,
       &:hover {
-        background: #333;
-        color: #FFF;
+        background: #ccc;
       }
 
       &.active:after, 
       &:hover:after {
-        background: #333;
+        background: #ccc;
       }
 
       &:after {
@@ -325,8 +323,8 @@ $menu-width: 32rem;
         height: 36px;
         transform: scale(0.707) rotate(45deg);
         z-index: 1;
-        background: #CCC;
-        box-shadow: 2px -2px 0 2px rgba(255, 255, 255, 1);
+        background: #eee;
+        box-shadow: 2px -2px 0 2px #fff;
         border-radius: 0 5px 0 50px;
       }
     }
@@ -343,6 +341,11 @@ $menu-width: 32rem;
     &:last-child a {
       border-radius: 0 4px 4px 0;
       padding-right: 20px;
+      background: transparent;
+
+      &:hover {
+        background: transparent;
+      }
     }
 
     &:last-child a:after {

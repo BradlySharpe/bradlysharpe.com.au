@@ -1,16 +1,20 @@
-<ol class="breadcrumbs">
-{% assign first = 1 %}
-{% for p in page.ancestors %}
-	<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb" {% if first == 0 %}itemprop="child"{% endif %}>
-		<a href="{{ p.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}" itemprop="url">
-			<span itemprop="title">{{ p.title }}</span>
-		</a>
-	</li>
-	{% assign first = 0 %}
-{% endfor %}
-	<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb" itemprop="child" class="active">
-		<a href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}" itemprop="url">
-			<span itemprop="title">{{ page.title }}</span>
-		</a>
-	</li>
-</ol>
+<div class="row">
+	<div class="twelve columns">
+		<ol class="breadcrumbs">
+		{% assign first = 1 %}
+		{% for p in page.ancestors %}
+			<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb" {% if first == 0 %}itemprop="child"{% endif %}>
+				<a href="{{ p.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}" itemprop="url">
+					<span itemprop="title">{{ p.title }}</span>
+				</a>
+			</li>
+			{% assign first = 0 %}
+		{% endfor %}
+			<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb" itemprop="child" class="active">
+				<a href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}" itemprop="url">
+					<span itemprop="title">{{ page.title }}</span>
+				</a>
+			</li>
+		</ol>
+	</div>
+</div>

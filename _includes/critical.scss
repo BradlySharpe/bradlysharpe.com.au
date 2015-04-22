@@ -288,8 +288,14 @@ $menu-width: 32rem;
 
 .breadcrumbs {
   li {
+    list-style: none;
+    display: inline-block;
+    margin: 0;
+    float: left;
+
     a {
       display: block;
+      padding: 1rem;
     }
   }
 }

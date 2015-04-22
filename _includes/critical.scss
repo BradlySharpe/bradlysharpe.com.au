@@ -340,14 +340,14 @@ $menu-width: 32rem;
     &:last-child a {
       border-radius: 0 4px 4px 0;
       padding-right: 20px;
-      background: #333;
-      color: #fff;
-      /*line-height: 35px;
-      border: 1px solid #eee;
+      background: transparent;
+      /*color: #fff;*/
+      line-height: 35px;
+      border: 1px solid #333;
 
       &:hover {
         background: transparent;
-      }*/
+      }
     }
 
     &:last-child a:after {

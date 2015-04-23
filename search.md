@@ -7,7 +7,7 @@ permalink: /search/
   <div class="twelve columns">
     <form class="inset u-cf" method="GET" name="search">
       <input class="u-full-width" type="text" name="q" id="query" value="" />
-      <button class="button button-primary">Search</button>
+      <button id="search" class="button button-primary" disabled="disabled" onclick="search.run();">Search</button>
     </form>
   </div>
 </div>
@@ -29,7 +29,7 @@ var search={
   populate:function(text){
     var data=[];
     try{data=JSON.parse(text)}catch(n){return search.noJSON()}
-    data.entries.forEach(function(e){search.index.add(e)}),search.loaded=!0,search.toggle()
+    data.entries.forEach(function(e){search.index.add(e)}),search.loaded=!0,search.toggle(),search.run()
   },
   noJSON:function(){
     console.error("No JSON support")
@@ -38,6 +38,23 @@ var search={
     /* enable search button */
   },
   run:function(){
+    var queryString = window.location.search.substr(1);
+    var query = "";
+    var pairs = queryString.split("&");
+    for (var i = 0, l = pairs.length; i < l; i++) {
+      var pieces = pairs[i].split("=");
+      query = (pieces[0].toLowerCase() == "q") ? decodeURIComponent(pieces[1]) : query;
+    };
+
+    if (query) {
+      var results = search.index.search(query);
+      if (results) {
+        for (var i = 0, l = results.length; i < l; i++) {
+          console.log(search.index.store[results[i]].title, search.index.store[results[i]], results[i]);
+        };
+      }
+    }
+
     return this.loaded?this.index.search("dns"):0
   }
 };

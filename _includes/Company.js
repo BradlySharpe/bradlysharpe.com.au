@@ -56,7 +56,7 @@
     },
     "potentialAction": {
       "@type": "SearchAction",
-      "target": "{{ site.baseurl | prepend: site.url }}/search?&q={query}",
+      "target": "{{ site.baseurl | prepend: site.url }}/search/?&q={query}",
       "query-input": "required name=query"
     }
 }
